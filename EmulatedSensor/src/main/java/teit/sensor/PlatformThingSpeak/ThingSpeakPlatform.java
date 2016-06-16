@@ -6,7 +6,7 @@
 package teit.sensor.PlatformThingSpeak;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.o3t_toolkit.GenericRESTFunction;
+import teit.sensor.main.GenericRESTFunction;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

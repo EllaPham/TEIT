@@ -8,7 +8,7 @@ package teit.sensor.PlatformSparkFun;
 import teit.sensor.APIs.OutputAdaptor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.o3t_toolkit.GenericRESTFunction;
+import teit.sensor.main.GenericRESTFunction;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;

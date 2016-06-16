@@ -1,4 +1,4 @@
-package com.mycompany.o3t_toolkit;
+package teit.sensor.main;
 
 import teit.sensor.APIs.InputAdaptor;
 import teit.sensor.APIs.OutputAdaptor;

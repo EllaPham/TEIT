@@ -5,7 +5,7 @@
  */
 package teit.sensor.MQTT;
 
-import com.mycompany.o3t_toolkit.Main;
+import teit.sensor.main.Main;
 import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;

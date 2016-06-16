@@ -5,7 +5,11 @@
     <artifactId>EmulatedSensor</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-     
+    <parent>
+        <groupId>teit</groupId>
+        <artifactId>teit-pom</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -18,10 +22,10 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.7.0</version>
         </dependency>
-         <dependency>
-		<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.paho</groupId>
@@ -54,10 +58,10 @@
             </plugin>
         </plugins>
     </build>
-   <repositories>
+    <repositories>
         <repository>
             <id>Eclipse Paho Repo</id>
             <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
         </repository>
-   </repositories>
+    </repositories>
 </project>
