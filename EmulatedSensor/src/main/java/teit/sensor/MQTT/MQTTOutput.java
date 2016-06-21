@@ -7,6 +7,7 @@ package teit.sensor.MQTT;
 
 import java.util.Map;
 import java.util.Properties;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -23,17 +24,15 @@ public class MQTTOutput implements OutputAdaptor {
     final static org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(MQTTOutput.class);
     public MqttClient queueClient = null;
     private String topic = "unknown";
-    private String sensorID = "unknown";
 
     @Override
     public boolean init(Properties prop) {
         String broker = prop.getProperty("platform.mqtt.url");
         topic = prop.getProperty("platform.mqtt.topic");
-        sensorID = prop.getProperty("sensorID");
         LOGGER.debug("MQTTAdaptor -- broker: " + broker + " -- topic: " + topic);
 
         try {
-            queueClient = new MqttClient(broker, sensorID);
+            queueClient = new MqttClient(broker, UUID.randomUUID().toString());
         } catch (MqttException ex) {
             Logger.getLogger(MQTTOutput.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,7 +51,6 @@ public class MQTTOutput implements OutputAdaptor {
     public boolean pushData(Map<String, String> values) {
         int qos = 2;
         try {
-            values.put("sensorid", this.sensorID);
             String content = values.toString();
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);

@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 import org.apache.log4j.Logger;
-import teit.sensor.MQTT.MQTTOutput;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,6 +19,7 @@ import teit.sensor.MQTT.MQTTOutput;
  * @author Trang
  */
 public class Main {
+
     final static Logger LOGGER = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
@@ -31,6 +31,7 @@ public class Main {
 
         String inputClassName = prop.getProperty("data").trim();
         String outputClassName = prop.getProperty("platform").trim();
+        String sensorid = prop.getProperty("sensorID").trim();
 
         LOGGER.debug("Input : " + inputClassName);
         LOGGER.debug("Output: " + outputClassName);
@@ -47,7 +48,7 @@ public class Main {
 
         boolean initInput = inputAdaptor.init(prop);
         boolean initOutput = outputAdaptor.init(prop);
-         
+
         if (initInput == false || initOutput == false) {
             LOGGER.debug("Cannot init the input or output... Quit !");
             return;
@@ -56,27 +57,31 @@ public class Main {
             LOGGER.debug("Starting to read data .... \n");
             while (true) {
                 Map<String, String> dataItem = inputAdaptor.getNextdata();
+
+                if (!dataItem.containsKey("sensorid")) {
+                    dataItem.put("sensorid", sensorid);
+                }
+
                 LOGGER.debug("Data item is read:" + dataItem);
                 if (dataItem == null) {
                     LOGGER.debug("Input data reading complete, stop now!");
                     break;
                 }
-                
+
                 boolean pushResult = outputAdaptor.pushData(dataItem);
-                
+
                 if (pushResult == false) {
                     LOGGER.debug("Cannot push data to the output, quit now!");
                     break;
                 }
 
                 LOGGER.debug("Sleeping for " + prop.get("rate") + " mili-seconds ...\n");
-                Thread.sleep(Long.parseLong(prop.get("rate").toString()));                
+                Thread.sleep(Long.parseLong(prop.get("rate").toString()));
             }
         } finally {
             inputAdaptor.close();
         }
-         
-         
+
     }
 
 }

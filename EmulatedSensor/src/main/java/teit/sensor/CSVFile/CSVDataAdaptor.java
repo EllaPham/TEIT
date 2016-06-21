@@ -25,10 +25,15 @@ public class CSVDataAdaptor implements InputAdaptor {
     private String firstLine = null;
     private final String cvsSplitBy = ",";
     String csvFileName;
+    private String sensorID=null;
 
     @Override
     public boolean init(Properties prop) {
         csvFileName = (String) prop.get("data.csv.fileName");
+        String addSensorID=(String) prop.get("data.csv.addSensorID");
+        if (addSensorID.trim().equals("true")){
+            sensorID = csvFileName.substring(0,csvFileName.lastIndexOf("."));
+        }
         LOGGER.debug("CSV File:" + csvFileName);
         try {
             br = new BufferedReader(new FileReader(csvFileName));
@@ -60,6 +65,9 @@ public class CSVDataAdaptor implements InputAdaptor {
             String[] lineArray = line.split(cvsSplitBy);
             for (int i = 0; i < lineArray.length; i++) {
                 dataMap.put(keyset[i].trim(), lineArray[i].trim());
+            }
+            if (sensorID!=null && !sensorID.isEmpty()){
+                dataMap.put("sensorid", sensorID);
             }
             return dataMap;
 
