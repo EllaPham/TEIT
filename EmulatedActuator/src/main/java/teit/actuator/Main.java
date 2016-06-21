@@ -19,22 +19,20 @@ import teit.actuator.model.EnumState;
  */
 public class Main {
 
-    static private EnumState enumState = new EnumState();
     static private EnumControl enumControl = new EnumControl();
     static private String currentState;
     static private List<String> stateList;
     static private List<EnumControl> controlList;
 
     public static void main(String[] args) throws IOException {
-        String jsonString;
-        //convert json string to object java
+        EnumState enumState;
+        ObjectMapper mapper = new ObjectMapper();
+        
         if (args.length > 0) {
-            ObjectMapper mapper = new ObjectMapper();
             enumState = mapper.readValue(new File(args[0]), EnumState.class);
         } else {
-            jsonString = SamplesGenerator.generateSwitchDesciption();
-            ObjectMapper mapper = new ObjectMapper();
-            EnumState enumState = mapper.readValue(jsonString, EnumState.class);
+            String jsonString = SamplesGenerator.generateSwitchDesciption();
+            enumState = mapper.readValue(jsonString, EnumState.class);
         }
 
         stateList = getState(enumState);
@@ -75,5 +73,4 @@ public class Main {
         return control;
     }
 
- 
 }
