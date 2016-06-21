@@ -17,7 +17,7 @@ import teit.actuator.model.EnumControl;
 
 /**
  *
- * @author hungld
+ * @author trang
  */
 public class SamplesGenerator {
 static private String jsonString;

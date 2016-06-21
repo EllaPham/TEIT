@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  *
- * @author hungld
+ * @author trang
  */
 public class EnumControl {
 

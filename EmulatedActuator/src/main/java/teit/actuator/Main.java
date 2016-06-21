@@ -15,7 +15,7 @@ import teit.actuator.model.EnumState;
 
 /**
  *
- * @author hungld
+ * @author trang
  */
 public class Main {
 
@@ -24,28 +24,55 @@ public class Main {
     static private String currentState;
     static private List<String> stateList;
     static private List<EnumControl> controlList;
+    static private List<String> actionList = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         String jsonString;
+
         //convert json string to object java
         if (args.length > 0) {
             ObjectMapper mapper = new ObjectMapper();
-            enumState = mapper.readValue(new File(args[0]), EnumState.class);
+            enumState = mapper.readValue(new File("actuator.data"), EnumState.class);
+            currentState = getState(enumState).get(0);//???
+            switch (args[0]) {
+                case "state-list":
+                    stateList = getState(enumState);
+                    System.out.println(stateList);
+                    break;
+                case "current-state":
+                    currentState = enumState.getCurrentState();
+                    System.out.println(currentState);
+                    break;
+                case "action-list":
+                    actionList = getActionList(enumState.getControls());
+                    System.out.println(actionList);
+                    break;
+              default:
+                    enumState = invoke(args[0], enumState, null);
+                    if (enumState==null){
+                        System.out.println("Unknown command !");
+                        return;
+                    }
+                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("actuator.data"), enumState);
+                    break;
+                
+            }
+            return;
         } else {
             jsonString = SamplesGenerator.generateSwitchDesciption();
             ObjectMapper mapper = new ObjectMapper();
             EnumState enumState = mapper.readValue(jsonString, EnumState.class);
+            stateList = getState(enumState);
+            controlList = getControl(enumState);
+            currentState = stateList.get(0);
+            currentState = getCurrentState(enumControl);
+            actionList = getActionList(controlList);
         }
 
-        stateList = getState(enumState);
-        controlList = getControl(enumState);
-        currentState = stateList.get(0);
         System.out.println("CURRENT State: " + currentState);
         System.out.println("State LIST: " + stateList);
-
-        enumControl = invoke("turn-off", enumState, null);
-        currentState = getCurrentState(enumControl);
         System.out.println("Current State UPDATED:" + currentState);
+
     }
 
     static public List<String> getState(EnumState eState) {
@@ -61,19 +88,29 @@ public class Main {
         return aControl.getEndState();
     }
 
-    public static EnumControl invoke(String actionName, EnumState eState, String[] parameter) {
-        List<EnumControl> controlList = new ArrayList<>();
-        EnumControl control = new EnumControl();
-        controlList = eState.getControlList();
-        for (EnumControl aControl : controlList) {
-            if (aControl.getName().equalsIgnoreCase(actionName)) {
+    static public List<String> getActionList(List<EnumControl> ctrlList) {
+        List<String> actions = new ArrayList<>();
+        for (EnumControl aCtrl : ctrlList) {
 
-                control = aControl;
+            actions.add(aCtrl.getName());
+        }
+        return actions;
+    }
+
+    public static EnumState invoke(String actionName, EnumState eState, String[] parameter) {
+        List<EnumControl> controlLst = new ArrayList<>();
+        EnumControl control = new EnumControl();
+        controlLst = eState.getControlList();
+        for (EnumControl aControl : controlLst) {
+            if (aControl.getName().equalsIgnoreCase(actionName)) {
+                eState.setCurrentState(aControl.getEndState());
+                // tim thay la return luon
+                return eState;
             }
 
         }
-        return control;
+        // return null tuc la khong tim thay action trung ten
+        return null;
     }
 
- 
 }

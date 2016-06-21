@@ -9,13 +9,32 @@ import java.util.List;
 
 /**
  *
- * @author hungld
+ * @author trang
  */
 public class EnumState {
 
     private String description;
     private List<String> states;
     private List<EnumControl> controls;
+    private String currentState;
+
+    public String getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(String currentState) {
+        this.currentState = currentState;
+    }
+
+    public List<String> getStates() {
+        return states;
+    }
+
+    public List<EnumControl> getControls() {
+        return controls;
+    }
+    
+    
 
     public void setDescription(String description) {
         this.description = description;
