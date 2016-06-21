@@ -57,12 +57,12 @@ public class Main {
             LOGGER.debug("Starting to read data .... \n");
             while (true) {
                 Map<String, String> dataItem = inputAdaptor.getNextdata();
+                LOGGER.debug("Data item is read:" + dataItem);
 
                 if (!dataItem.containsKey("sensorid")) {
                     dataItem.put("sensorid", sensorid);
                 }
-
-                LOGGER.debug("Data item is read:" + dataItem);
+                
                 if (dataItem == null) {
                     LOGGER.debug("Input data reading complete, stop now!");
                     break;
