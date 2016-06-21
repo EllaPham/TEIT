@@ -8,12 +8,10 @@ package teit.actuator.Main;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import jdk.internal.org.objectweb.asm.TypeReference;
 import teit.actuator.model.EnumState;
 import teit.actuator.model.EnumControl;
 
@@ -22,15 +20,16 @@ import teit.actuator.model.EnumControl;
  * @author hungld
  */
 public class SamplesGenerator {
-
-    public static void main(String[] args) throws IOException {
-        generateSwitchDesciption();
-        
-        
-
-    }
+static private String jsonString;
+//    public static void main(String[] args) throws IOException {
+//        jsonString = generateSwitchDesciption();
+//        writeToFile(jsonString); 
+//        
+//
+//    }
     
-    private static void generateSwitchDesciption() throws JsonProcessingException{
+    public static String generateSwitchDesciption() throws JsonProcessingException{
+        
         EnumState aState = new EnumState();
         EnumControl aControl = new EnumControl();
         EnumControl aControl2 = new EnumControl();
@@ -48,9 +47,9 @@ public class SamplesGenerator {
         aControl.setStartState("OFF");
         aControl.setEndState("ON");
         // Khởi tạo cho Control 2
-        aControl.setName("turn-off");
-        aControl.setStartState("ON");
-        aControl.setEndState("OFF");
+        aControl2.setName("turn-off");
+        aControl2.setStartState("ON");
+        aControl2.setEndState("OFF");
         //LControl list add
         LControl.add(aControl);
         LControl.add(aControl2);
@@ -59,11 +58,35 @@ public class SamplesGenerator {
         ObjectMapper mapper = new ObjectMapper();     
         String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(aState);
         System.out.println(json);
+        return json;
     }
 
-    static public EnumState convertJsonToJava(String filePath) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();        
-        return mapper.readValue(new File(filePath), EnumState.class);     
-    }
+    static public void writeToFile(String jsonStr) throws IOException{
+        File file = new File("c:/description.json");
+		
 
-}
+		try (FileOutputStream fop = new FileOutputStream(file)) {
+
+			// if file doesn't exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			// get the content in bytes
+			byte[] contentInBytes = jsonStr.getBytes();
+
+			fop.write(contentInBytes);
+			fop.flush();
+			fop.close();
+
+			System.out.println("Done");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+                            }
+	
+    
+
+
