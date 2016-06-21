@@ -18,51 +18,48 @@ import teit.sensor.APIs.OutputAdaptor;
  *
  * @author Trang
  */
-public class MQTTOutput implements OutputAdaptor{
- final static org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(MQTTOutput.class);
+public class MQTTOutput implements OutputAdaptor {
+
+    final static org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(MQTTOutput.class);
     public MqttClient queueClient = null;
-    public String topic = "Topic:" ;
-    public MqttMessage message = null;
+    private String topic = "unknown";
+    private String sensorID = "unknown";
+
     @Override
     public boolean init(Properties prop) {
-    String broker = prop.getProperty("platform.mqtt.url");
-    String clientId = prop.getProperty("sensorID");
-   
-     try {
-        
-         queueClient = new MqttClient(broker, clientId); 
-     } catch (MqttException ex) {
-         Logger.getLogger(MQTTOutput.class.getName()).log(Level.SEVERE, null, ex);
-     }
-     try {
-         queueClient.connect();
-         return true;
-         
-     } catch (MqttException ex) {
-         Logger.getLogger(MQTTOutput.class.getName()).log(Level.SEVERE, null, ex);
-     }
-          
-            return false;
+        String broker = prop.getProperty("platform.mqtt.url");
+        topic = prop.getProperty("platform.mqtt.topic");
+        sensorID = prop.getProperty("sensorID");
+        LOGGER.debug("MQTTAdaptor -- broker: " + broker + " -- topic: " + topic);
+
+        try {
+            queueClient = new MqttClient(broker, sensorID);
+        } catch (MqttException ex) {
+            Logger.getLogger(MQTTOutput.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            queueClient.connect();
+            return true;
+
+        } catch (MqttException ex) {
+            Logger.getLogger(MQTTOutput.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
     }
 
     @Override
     public boolean pushData(Map<String, String> values) {
-        int qos=2;
-          try {
-           
-            System.out.println("Publishing message: "  + values);
-            String content =values.toString();
-          
-           // for(String key:values.keySet()){content += values.get(key) ;}
+        int qos = 2;
+        try {
+            values.put("sensorid", this.sensorID);
+            String content = values.toString();
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
-            
+
             queueClient.publish(topic, message);
-          //  queueClient.setCallback(this);
-            
-//              queueClient.disconnect();
-//              queueClient.close();
-            System.out.println("Message published");
+            LOGGER.debug("Published: " + values);
+
         } catch (MqttException me) {
             System.out.println("reason " + me.getReasonCode());
             System.out.println("msg " + me.getMessage());
@@ -71,7 +68,7 @@ public class MQTTOutput implements OutputAdaptor{
             System.out.println("excep " + me);
             me.printStackTrace();
         }
-      return true;
+        return true;
     }
-    
+
 }

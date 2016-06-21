@@ -1,10 +1,10 @@
 package teit.sensor.CSVFile;
 
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -17,22 +17,24 @@ import teit.sensor.APIs.InputAdaptor;
  * @author Trang
  */
 public class CSVDataAdaptor implements InputAdaptor {
+
     final static Logger LOGGER = org.apache.log4j.Logger.getLogger(CSVDataAdaptor.class);
 
     private BufferedReader br = null;
     private String[] keyset;
     private String firstLine = null;
     private final String cvsSplitBy = ",";
+    String csvFileName;
 
     @Override
     public boolean init(Properties prop) {
-        String csvFileName = (String) prop.get("data.csv.fileName");
-        LOGGER.debug("FILE CSV NAME:" + csvFileName);
+        csvFileName = (String) prop.get("data.csv.fileName");
+        LOGGER.debug("CSV File:" + csvFileName);
         try {
             br = new BufferedReader(new FileReader(csvFileName));
             firstLine = br.readLine();
             keyset = firstLine.split(cvsSplitBy);
-            LOGGER.debug("Key:" + "#" + keyset);
+            LOGGER.debug("Keyset:" + Arrays.toString(keyset));
             return true;
         } catch (FileNotFoundException ex) {
             LOGGER.debug("Cannot find file: " + prop.get("data.csv.fileName"), ex);
@@ -47,17 +49,20 @@ public class CSVDataAdaptor implements InputAdaptor {
     public Map<String, String> getNextdata() {
         Map<String, String> dataMap = new HashMap<>();
         try {
-            String line = br.readLine();
-            LOGGER.debug("CSV read one line: " + line );
-            if (line != null) {
-                String[] lineArray = line.split(cvsSplitBy);
-                for (int i = 0; i < lineArray.length; i++) {                    
-                    dataMap.put(keyset[i].trim(), lineArray[i].trim());
-                }
-                return dataMap;
-            } else {
-                return null;
+            String line = br.readLine();            
+            // if reach the end of the file, recreate br and read from the top of file
+            if (line == null) {
+                br = new BufferedReader(new FileReader(csvFileName));
+                firstLine = br.readLine();
+                line = br.readLine();
             }
+            LOGGER.debug("CSV read one line: " + line);
+            String[] lineArray = line.split(cvsSplitBy);
+            for (int i = 0; i < lineArray.length; i++) {
+                dataMap.put(keyset[i].trim(), lineArray[i].trim());
+            }
+            return dataMap;
+
         } catch (IOException ex) {
             LOGGER.debug("Error to read next line in CSV file", ex);
             return null;

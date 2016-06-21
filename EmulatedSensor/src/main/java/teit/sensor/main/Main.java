@@ -53,7 +53,7 @@ public class Main {
             return;
         }
         try {
-            LOGGER.debug("Starting to read data ....");
+            LOGGER.debug("Starting to read data .... \n");
             while (true) {
                 Map<String, String> dataItem = inputAdaptor.getNextdata();
                 LOGGER.debug("Data item is read:" + dataItem);
@@ -70,8 +70,7 @@ public class Main {
                 }
 
                 LOGGER.debug("Sleeping for " + prop.get("rate") + " mili-seconds ...\n");
-                Thread.sleep(Long.parseLong(prop.get("rate").toString()));
-                
+                Thread.sleep(Long.parseLong(prop.get("rate").toString()));                
             }
         } finally {
             inputAdaptor.close();
