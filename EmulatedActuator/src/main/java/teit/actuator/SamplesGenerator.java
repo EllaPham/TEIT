@@ -62,7 +62,7 @@ static private String jsonString;
     }
 
     static public void writeToFile(String jsonStr) throws IOException{
-        File file = new File("c:/description.json");
+        File file = new File("c:/switch.json");
 		
 
 		try (FileOutputStream fop = new FileOutputStream(file)) {

@@ -5,10 +5,10 @@
  */
 package teit.actuator;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.io.IOException;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import teit.actuator.model.EnumControl;
@@ -19,16 +19,24 @@ import teit.actuator.model.EnumState;
  * @author hungld
  */
 public class Main {
-    private EnumState enumState = new EnumState();
+    static private EnumState enumState = new EnumState();
     static private EnumControl enumControl = new EnumControl();
     static private String currentState;
     static private List<String> stateList;
     static private List<EnumControl> controlList;
-      public static void main(String[] args) throws JsonProcessingException, IOException{
+      public static void main(String[] args) throws  IOException{
+            String jsonString;
           //convert json string to object java
-         String jsonString = SamplesGenerator.generateSwitchDesciption();
-          	ObjectMapper mapper = new ObjectMapper();
+          if (args.length > 0){
+              enumState = getJsonString(args[0]);
+          }
+          else{
+                jsonString = SamplesGenerator.generateSwitchDesciption();
+                ObjectMapper mapper = new ObjectMapper();
                 EnumState enumState = mapper.readValue(jsonString, EnumState.class);
+          }
+        
+          	
                 stateList = getState(enumState);
                 controlList = getControl(enumState);
                 currentState = stateList.get(0);
@@ -61,5 +69,16 @@ public class Main {
            
         }    
         return control; 
+    }
+    static public EnumState getJsonString(String filePath) throws IOException{
+        
+        EnumState eState = new EnumState();
+        ObjectMapper mapper = new ObjectMapper();
+       
+
+        //Object to JSON in file
+         mapper.writeValue(new File(filePath), eState);
+
+        return eState;
     }
 }
