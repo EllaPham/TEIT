@@ -19,7 +19,6 @@ import teit.actuator.model.EnumState;
  */
 public class Main {
 
-    static private EnumState enumState = new EnumState();
     static private EnumControl enumControl = new EnumControl();
     static private String currentState;
     static private List<String> stateList;
@@ -27,10 +26,13 @@ public class Main {
     static private List<String> actionList = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
+
         String jsonString;
 
         //convert json string to object java
         if (args.length > 0) {
+            EnumState enumState;
+//        ObjectMapper mapper = new ObjectMapper();
             ObjectMapper mapper = new ObjectMapper();
             enumState = mapper.readValue(new File("actuator.data"), EnumState.class);
             currentState = getState(enumState).get(0);//???
@@ -67,6 +69,16 @@ public class Main {
             currentState = stateList.get(0);
             currentState = getCurrentState(enumControl);
             actionList = getActionList(controlList);
+//=======
+//        EnumState enumState;
+//        ObjectMapper mapper = new ObjectMapper();
+//        
+//        if (args.length > 0) {
+//            enumState = mapper.readValue(new File(args[0]), EnumState.class);
+//        } else {
+//            String jsonString = SamplesGenerator.generateSwitchDesciption();
+//            enumState = mapper.readValue(jsonString, EnumState.class);
+//>>>>>>> 68826ba8e95bcfb4dfc64702ea1ba83305c8fbe7
         }
 
         System.out.println("CURRENT State: " + currentState);

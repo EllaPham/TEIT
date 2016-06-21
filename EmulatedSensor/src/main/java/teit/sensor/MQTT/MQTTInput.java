@@ -25,16 +25,16 @@ public class MQTTInput implements InputAdaptor{
     @Override
     public Map<String, String> getNextdata() {
          
-        MQTTOutput mqttOutput = new MQTTOutput();
-       // mqttOutput.queueClient.setCallback(mqttOutput);
-     try {
-         mqttOutput.queueClient.subscribe(mqttOutput.topic);
-       LOGGER.debug("Public topic:" +mqttOutput.topic );
-        LOGGER.debug("Subscribe message:" +message.getPayload());
-     } catch (MqttException ex) {
-         Logger.getLogger(MQTTInput.class.getName()).log(Level.SEVERE, null, ex);
-     }
-     
+//        MQTTOutput mqttOutput = new MQTTOutput();
+//       // mqttOutput.queueClient.setCallback(mqttOutput);
+//     try {
+//         mqttOutput.queueClient.subscribe(mqttOutput.topic);
+//       LOGGER.debug("Public topic:" +mqttOutput.topic );
+//        LOGGER.debug("Subscribe message:" +message.getPayload());
+//     } catch (MqttException ex) {
+//         Logger.getLogger(MQTTInput.class.getName()).log(Level.SEVERE, null, ex);
+//     }
+//     
       return null;
     }
 

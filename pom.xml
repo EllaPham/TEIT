@@ -12,7 +12,8 @@
     </properties>
     <modules>
         <module>EmulatedSensor</module>
-
+        <module>EmulatedActuator</module>
+        <module>MQTTSubscriber</module>
     </modules>
 
 </project>
