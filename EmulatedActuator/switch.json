@@ -1,0 +1,15 @@
+{
+  "description" : "Switch",
+  "stateList" : [ "ON", "OFF", "STUCK" ],
+  "controlList" : [ {
+    "name" : "turn-on",
+    "startState" : "OFF",
+    "endState" : "ON",
+    "parameter" : null
+  }, {
+    "name" : "turn-off",
+    "startState" : "ON",
+    "endState" : "OFF",
+    "parameter" : null
+  } ]
+}
