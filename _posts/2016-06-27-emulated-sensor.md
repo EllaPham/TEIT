@@ -56,19 +56,19 @@ CSV Adaptor sẽ đọc dòng đầu tiên để lấy ra tên các cột dữ l
 
 Ví dụ: file csv tên là “sensor.data”
 
-timestamp,cpu,ram,computername
-20052016,1.3,500,TRANGPC    
-20052016,1.5,600,TRANGPC   
-20052016,1.6,800,TRANGPC
-20052016,1.4,900,TRANGPC   
-20052016,1.3,100,TRANGPC   
-20052016,1.2,200,TRANGPC
-20052016,1.6,300,TRANGPC
-20052016,1.9,400,TRANGPC
+	timestamp,cpu,ram,computername
+	20052016,1.3,500,TRANGPC    
+	20052016,1.5,600,TRANGPC   
+	20052016,1.6,800,TRANGPC
+	20052016,1.4,900,TRANGPC   
+	20052016,1.3,100,TRANGPC   
+	20052016,1.2,200,TRANGPC
+	20052016,1.6,300,TRANGPC
+	20052016,1.9,400,TRANGPC
 
 Sau mỗi chu kỳ, dữ liệu được đẩy ra dưới dạng Map như sau:
 
-{timestamp=20052016, ram=600, cpu=1.5, computername=TRANGPC, sensorid=123}
+	{timestamp=20052016, ram=600, cpu=1.5, computername=TRANGPC, sensorid=123}
 
 
 ### 2.3.2. ConsoleData adaptor
@@ -83,7 +83,7 @@ Dữ liệu của user, cụ thể phần này là dữ liệu lấy từ sensor
 
 ### 2.4.1.ConsolePlatform
 
-	Dữ liệu thực của sensor được nhập trực tiếp từ bàn phím, sau đó được in ra màn hình console
+Dữ liệu thực của sensor được nhập trực tiếp từ bàn phím, sau đó được in ra màn hình console
 	
 ### 2.4.2.Sparkfun Platform
 
@@ -113,25 +113,31 @@ user còn có thể upload dữ liệu từ emulated sensor lên các đầu ra 
 
 b.Configure cho Input: Cấu hình định dạng cho data đầu vào của Emulated Sensor
 
-CSV file: data: data=teit.sensor.CSVFile.CSVDataAdaptor 
+CSV file: 
+	data: data=teit.sensor.CSVFile.CSVDataAdaptor 
 
-Dữ liệu nhập từ bàn phím: data=teit.sensor.PlatformConsole.ConsoleData
+Dữ liệu nhập từ bàn phím: 
+	data=teit.sensor.PlatformConsole.ConsoleData
 
 Customer data: 
 
-data=teit.sensor.PlatformSparkFun.LaptopData (Sparkfun platform)
+	data=teit.sensor.PlatformSparkFun.LaptopData (Sparkfun platform)
 
-data=teit.sensor.PlatformThingSpeak.ThingSpeakData (Thingspeak platform)
+	data=teit.sensor.PlatformThingSpeak.ThingSpeakData (Thingspeak platform)
 
 c.Configure cho Output: Cấu hình nơi Emulated Sensor  gửi dữ liệu tới
 
-Console Platform: platform=teit.sensor.PlatformConsole.ConsolePlatform
+Console Platform: 
+	platform=teit.sensor.PlatformConsole.ConsolePlatform
 
-Thingspeak Platform: platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
+Thingspeak Platform: 
+	platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
 
-Sparkfun Platform: platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
+Sparkfun Platform: 
+	platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
 
-MQTT: platform=teit.sensor.MQTT.MQTTOutput 
+MQTT: 
+	platform=teit.sensor.MQTT.MQTTOutput 
 		
 		
 ### 2.5.2. Run Emulated sensor:
@@ -140,5 +146,5 @@ Sau khi chuẩn bị dữ liệu và cấu hình trong sensor.conf
 
 Trong command line, gõ dòng lệnh sau để chạy:
 
-java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar 
+	java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar 
 
