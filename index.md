@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Jekyll Docs Template"
+title: "TEIT, A Toolset for Emulated IoT Testbed"
 ---
 
 ### Get Started
