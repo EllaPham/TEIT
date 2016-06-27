@@ -32,7 +32,7 @@ Việc lựa chọn kiểu dữ liệu đầu vào và provider được cấu h
 *Cấu hình cho Output: 
 
 ## 2.3. Input adaptor
-### 2.3.1. CSV Adaptor
+###  2.3.1. CSV Adaptor
 Đầu vào cơ bản nhất của Emulated Sensor là các file CSV. Mục đích của việc dùng file CSV là mô phỏng lại một kịch bản đã có. Ví dụ, người dùng cần mô phỏng lại nhiệt độ của phòng trong một ngày, dữ liệu này đã được ghi lại (log) trong file CSV.
 CSV là một file text có cấu trúc như sau:
 Dòng đầu tiên chứa tên các trường (header)
