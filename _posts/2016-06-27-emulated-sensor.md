@@ -127,11 +127,11 @@ Dữ liệu nhập từ bàn phím:
 
 Customer data: 
 
-Sparkfun platform
+	Sparkfun platform
 
 	data=teit.sensor.PlatformSparkFun.LaptopData 
 	
-Thingspeak platform
+	Thingspeak platform
 
 	data=teit.sensor.PlatformThingSpeak.ThingSpeakData
 
