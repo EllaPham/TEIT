@@ -24,7 +24,7 @@ Bước 3, sensor gửi dữ liệu đến các platform hoặc đầu ra khác.
 					I
 				  sensor.conf**
 
-	Data:dữ liệu thực được thu thập từ sensor thực với các định dạng khác nhau.
+Data:dữ liệu thực được thu thập từ sensor thực với các định dạng khác nhau.
 Input Adaptor: có nhiệm vụ chuyển từ dữ liệu sensor thực từ các định dạng khác nhau thành 1 định dạng duy nhất. Dữ liệu chuẩn này này có dạng: Map<String,String>
 OutputAdaptor: Có nhiệm vụ chuyển từ dữ liệu đầu ra duy nhất của Emulated Sensor thành dữ liệu theo định dạng ứng với từng provider cụ thể.
 
