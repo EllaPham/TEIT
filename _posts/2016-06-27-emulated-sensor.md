@@ -21,10 +21,12 @@ Steo 3, sensor sends data to platforms or other ouputs. In this step, needing a 
 
 # 2. Architecture
 
+
 Data ---(InputAdaptor) ---> Emulated Sensor ----(OutputAdaptor)---> Providers
 					T
 					I
-				  sensor.conf 
+				  sensor.conf
+
 
 **Data:** data is collected from real sensors in a variety of formats
 
