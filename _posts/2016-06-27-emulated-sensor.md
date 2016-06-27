@@ -32,7 +32,8 @@ Việc lựa chọn kiểu dữ liệu đầu vào và provider được cấu h
 *Cấu hình cho Output: 
 
 ## 2.3. Input adaptor
-###  2.3.1. CSV Adaptor
+
+### 2.3.1. CSV Adaptor
 Đầu vào cơ bản nhất của Emulated Sensor là các file CSV. Mục đích của việc dùng file CSV là mô phỏng lại một kịch bản đã có. Ví dụ, người dùng cần mô phỏng lại nhiệt độ của phòng trong một ngày, dữ liệu này đã được ghi lại (log) trong file CSV.
 CSV là một file text có cấu trúc như sau:
 Dòng đầu tiên chứa tên các trường (header)
@@ -58,20 +59,28 @@ timestamp,cpu,ram,computername
 Sau mỗi chu kỳ, dữ liệu được đẩy ra dưới dạng Map như sau:
 {timestamp=20052016, ram=600, cpu=1.5, computername=TRANGPC, sensorid=123}
 
+
 ### 2.3.2. ConsoleData adaptor
 User có thể nhập dữ liệu trực tiếp từ bàn phím 
+
 ### 2.3.3. Laptop data adaptor
 Dữ liệu của user, cụ thể phần này là dữ liệu lấy từ sensor của laptop đo ram, cpu, computername. Qua ví dụ này, ta có thể mở rộng việc lấy dữ liệu thực qua Emulated Sensor. Giả sử ta có N sensor gửi N điểm dữ liệu. Trên gateway, 1 Emulated Sensor sẽ thu thập tất cả dữ liệu thành 1 định dạng. Ví dụ trong phòng có 3 sensor nhiệt độ, 1 sensor báo cháy, 1 sensor độ ẩm. Tất cả các sensor này được truyền qua Emulated Sensor thành 4 điểm dữ liệu, biểu thị điều kiện hiện tại của phòng.
+
 ## 2.4. Output adaptor: 
+
 ### 2.4.1.ConsolePlatform
 	Dữ liệu thực của sensor được nhập trực tiếp từ bàn phím, sau đó được in ra màn hình console
+	
 ### 2.4.2.Sparkfun Platform
 	Link url: https://data.sparkfun.com/ 
 Dữ liệu đọc từ sensor được gửi lên IoT platform sparkfun thông qua Sparkfun APIs
+
 ### 2.4.3. Thingspeak
 	Link url: https://thingspeak.com/ 
 Dữ liệu đọc từ sensor được gửi lên IoT platform thingspeak thông qua Thingspeak APIs
+
 ## 2.5. Usage
+
 ### 2.5.1.Cấu hình cho Emulated sensor thông qua 1 file cấu hình duy nhất  “sensor.conf” 
 Cấu hình trong file configure đơn giản, rõ ràng và linh hoạt
 a.Configure cho sensor
@@ -90,6 +99,7 @@ Console Platform: platform=teit.sensor.PlatformConsole.ConsolePlatform
 Thingspeak Platform: platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
 Sparkfun Platform: platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
 MQTT: platform=teit.sensor.MQTT.MQTTOutput 
+		
 		
 ### 2.5.2. Run Emulated sensor:
 Sau khi chuẩn bị dữ liệu và cấu hình trong sensor.conf
