@@ -8,157 +8,160 @@ order: 1
 
 
 
+
 # 1. Introduction
 
-Emulated Sensor mô phỏng hoạt động của các sensor thực, bao gồm 3 bước. 
+Emulated Sensor emulates operating principles of a real actutor, including 3 steps:
 
-Bước 1, sensor thu nhận dữ liệu từ môi trường, ví dụ nhiệt độ, độ ẩm, thông số thiết bị. Các dữ liệu thu thập thường ở các định dạng khác nhau, ví dụ tên trường, kiểu dữ liệu (cùng là nhiệt độ, dữ liệu có thể là C hoặc F, tên trường là temperature, temp) . 
+Step 1, sensor receives data from environment, such as temprature, humidity, device parameters. This collected data is often in different formats, example: field name, datatypes (the temprature could be C or F, field name is temperature or  temp)
 
-Bước 2, sensor chuyển đổi dữ liệu đặc trưng của môi trường thành định dạng chuẩn.
+Step 2, sensor helps to transform specific data of the environment to a standard format
 
-Bước 3, sensor gửi dữ liệu đến các platform hoặc đầu ra khác. Bước này cần sự chuyển đổi dữ liệu từ định dạng chuẩn sang định dạng đầu ra phù hợp.
+Steo 3, sensor sends data to platforms or other ouputs. In this step, needing a transformation from above standard format to a suitable format corresponding to each output.
 
 # 2. Architecture
 
-**Data ---(InputAdaptor) ---> Emulated Sensor ----(OutputAdaptor)---> Providers
+Data ---(InputAdaptor) ---> Emulated Sensor ----(OutputAdaptor)---> Providers
 					T
 					I
-				  sensor.conf**
+				  sensor.conf 
 
-Data:dữ liệu thực được thu thập từ sensor thực với các định dạng khác nhau.
+**Data:** data is collected from real sensors in a variety of formats
 
-Input Adaptor: có nhiệm vụ chuyển từ dữ liệu sensor thực từ các định dạng khác nhau thành 1 định dạng duy nhất. Dữ liệu chuẩn này này có dạng: Map<String,String>
+**Input Adaptor:** transform data of real sensor from different formats to only format. standard data format has the form **Map<String, String>**
 
-OutputAdaptor: Có nhiệm vụ chuyển từ dữ liệu đầu ra duy nhất của Emulated Sensor thành dữ liệu theo định dạng ứng với từng provider cụ thể.
+**Output Adaptor:** transforming only output data of Emulated Sensor to the suitable format corresponding to specific provider.
 
-Việc lựa chọn kiểu dữ liệu đầu vào và provider được cấu hình trong 1 file configure có tên là “Sensor.conf”. Cấu trúc của file sensor.conf bao gồm:
+Selecting input datatype and provider are configured in a configuration file named “sensor.conf”. The structure of sensor.conf file includes:
 
-*Cấu hình cho Emulated Sensor
+Configuration for Emulated Sensor
 
-*Cấu hình cho Input: 
+Configuration for Input
 
-*Cấu hình cho Output: 
+Configuaration for Output
 
 # 3. Input adaptor
 
 ## 3.1. CSV Adaptor
 
-Đầu vào cơ bản nhất của Emulated Sensor là các file CSV. Mục đích của việc dùng file CSV là mô phỏng lại một kịch bản đã có. Ví dụ, người dùng cần mô phỏng lại nhiệt độ của phòng trong một ngày, dữ liệu này đã được ghi lại (log) trong file CSV.
-CSV là một file text có cấu trúc như sau:
+The basic input of Emulated Sensor is CSV files. The perpose of using csv file is emulation of an existing scenario. Example for, user needs to emulate the temprature of a room in a day, this data is recorded in in CSV file (log file) 
+The structure of CSV file as below:
 
-Dòng đầu tiên chứa tên các trường (header)
+The first line is names of fields (header)
 
-Các dòng tiếp theo lưu trữ các bản ghi dữ liệu (record), mỗi bản ghi 1 dòng
+The next lines store data records, each record is a line
 
-Các cột dữ liệu phân cách nhau bằng dấu phảy
+Data columns is seperated by comma
 
-Mặc định Emulated Sensor sẽ đọc file “sensor.data” tại thư mục hiện thời
+By default, Emulated sensor reads “sensor.data” file in tempatory folder
 
-CSV Adaptor sẽ đọc dòng đầu tiên để lấy ra tên các cột dữ liệu. Sau mỗi chu kỳ, sensor đọc 1 dòng tiếp theo trong file CSV. Các cột dữ liệu trong bản ghi được gán tương ứng với tên các trường trong header.
-
-
-
-Ví dụ: file csv tên là “sensor.data”
-
-	timestamp,cpu,ram,computername
-	20052016,1.3,500,TRANGPC    
-	20052016,1.5,600,TRANGPC   
-	20052016,1.6,800,TRANGPC
-	20052016,1.4,900,TRANGPC   
-	20052016,1.3,100,TRANGPC   
-	20052016,1.2,200,TRANGPC
-	20052016,1.6,300,TRANGPC
-	20052016,1.9,400,TRANGPC
-
-Sau mỗi chu kỳ, dữ liệu được đẩy ra dưới dạng Map như sau:
-
-	{timestamp=20052016, ram=600, cpu=1.5, computername=TRANGPC, sensorid=123}
+CSV Adaptor reads the first line to extract names of fields  After each cycle, sensor reads the next line in CSV file. Data columns in the record are assigned corresponding to fields in header
 
 
+    Ex: CSV file with name “sensor.data”
+
+    timestamp,cpu,ram,computername
+    20052016,1.3,500,TRANGPC    
+    20052016,1.5,600,TRANGPC   
+    20052016,1.6,800,TRANGPC
+    20052016,1.4,900,TRANGPC   
+    20052016,1.3,100,TRANGPC   
+    20052016,1.2,200,TRANGPC
+    20052016,1.6,300,TRANGPC
+    20052016,1.9,400,TRANGPC
+
+Afer each  cycle, output data in Map format as below: 
+
+    {timestamp=20052016, ram=600, cpu=1.5,     computername=TRANGPC, sensorid=123}
+    
 ## 3.2. ConsoleData adaptor
 
-User có thể nhập dữ liệu trực tiếp từ bàn phím 
+User can input data directly from keyboard.
 
 ## 3.3. Laptop data adaptor
 
-Dữ liệu của user, cụ thể phần này là dữ liệu lấy từ sensor của laptop đo ram, cpu, computername. Qua ví dụ này, ta có thể mở rộng việc lấy dữ liệu thực qua Emulated Sensor. Giả sử ta có N sensor gửi N điểm dữ liệu. Trên gateway, 1 Emulated Sensor sẽ thu thập tất cả dữ liệu thành 1 định dạng. Ví dụ trong phòng có 3 sensor nhiệt độ, 1 sensor báo cháy, 1 sensor độ ẩm. Tất cả các sensor này được truyền qua Emulated Sensor thành 4 điểm dữ liệu, biểu thị điều kiện hiện tại của phòng.
+User data,  is data from sensor. In particular, this data belongs to laptop that measures ram, cpu and computername. Through this example, we can extend receiving real data using Emulated Sensor. Assume that we have N sensors, sending data to N data points. On gateway, 1 sensor receives all the data in one format. For example:  there are 3 temperature sensors in a room: 1 temperature, 1 fire alarm sensor and 1 humidity sensor. All these sensors is passed through Emulated Sensor into 4 data points, that indicates current condition of the room
 
 # 4. Output adaptor: 
 
 ## 4.1.ConsolePlatform
 
-Dữ liệu thực của sensor được nhập trực tiếp từ bàn phím, sau đó được in ra màn hình console
-	
+Real data of sensor are  received directly from keyboard, then they are printed on console screen
+
 ## 4.2.Sparkfun Platform
 
-	Link url: https://data.sparkfun.com/ 
+**url:** 
+
+	https://data.sparkfun.com/ 
 	
-Dữ liệu đọc từ sensor được gửi lên IoT platform sparkfun thông qua Sparkfun APIs
+Data reading from sensor are sent to IoT platform sparkfun through Sparkfun APIs
 
 ## 4.3. Thingspeak
 
-	Link url: https://thingspeak.com/ 
+**url:**
+
+	https://thingspeak.com/
 	
-Dữ liệu đọc từ sensor được gửi lên IoT platform thingspeak thông qua Thingspeak APIs
+Data reading from sensor are sent to IoT platform thingspeak through Thingspeak APIs
 
 # 5. Usage
 
-## 5.1.Cấu hình cho Emulated sensor thông qua 1 file cấu hình duy nhất  “sensor.conf” 
+## 5.1.Configure for Emulated Sensor through only configuration file “sensor.conf”
 
-Cấu hình trong file configure đơn giản, rõ ràng và linh hoạt
+**Sensor configuration**
 
-a.Configure cho sensor
+***rate:**
 
-*rate:
+User can send data from Emulated Sensor to outputs regularly. Duration between 2 submissions is set up in “sensor.conf” through parameter “rate” (ex: rate = 5000)
 
-user còn có thể upload dữ liệu từ emulated sensor lên các đầu ra liên tục, thời gian giữa các lần upload cũng được setting ở trong sensor.conf, thông qua tham số “rate” (ex: rate = 5000)
+***sensorID:**
 
-*sensorID:
+**Configure cho Input** 
 
-b.Configure cho Input: Cấu hình định dạng cho data đầu vào của Emulated Sensor
+Data format configuration of Emulated Senssor
 
-CSV file: 
+**CSV file:**
 
-	data: data=teit.sensor.CSVFile.CSVDataAdaptor 
-
-Dữ liệu nhập từ bàn phím: 
-
-	data=teit.sensor.PlatformConsole.ConsoleData
-
-Customer data: 
-
-	Sparkfun platform
-
-	data=teit.sensor.PlatformSparkFun.LaptopData 
+    data: data=teit.sensor.CSVFile.CSVDataAdaptor 
 	
-	Thingspeak platform
+**Input data from keyboard:**   
 
-	data=teit.sensor.PlatformThingSpeak.ThingSpeakData
+    data=teit.sensor.PlatformConsole.ConsoleData
+	
+**Customer data:**
 
-c.Configure cho Output: Cấu hình nơi Emulated Sensor  gửi dữ liệu tới
+Sparkfun platform
+
+    data=teit.sensor.PlatformSparkFun.LaptopData 
+    
+Thingspeak platform
+
+    data=teit.sensor.PlatformThingSpeak.ThingSpeakData 
+
+**Configure cho Output:** 
+
+Configuration for the place that data are sent to 
 
 Console Platform: 
 
-	platform=teit.sensor.PlatformConsole.ConsolePlatform
+    platform=teit.sensor.PlatformConsole.ConsolePlatform
+    
+Thingspeak Platform:
 
-Thingspeak Platform: 
+    platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
+	
+Sparkfun Platform:
 
-	platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
-
-Sparkfun Platform: 
-
-	platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
-
+    platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
+  
 MQTT: 
 
-	platform=teit.sensor.MQTT.MQTTOutput 
+    platform=teit.sensor.MQTT.MQTTOutput 
 		
-		
-### 2.5.2. Run Emulated sensor:
+## 5.2. Run Emulated sensor:
 
-Sau khi chuẩn bị dữ liệu và cấu hình trong sensor.conf
+After data preparation and configuration in “sensor.conf”
+In command line, typing this command as below:
 
-Trong command line, gõ dòng lệnh sau để chạy:
-
-	java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar 
+    java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar 
 
