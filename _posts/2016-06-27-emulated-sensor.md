@@ -32,9 +32,7 @@ Data ---(InputAdaptor) ---> Emulated Sensor ----(OutputAdaptor)---> Providers
 
 **Input Adaptor:** transform data of real sensor from different formats to only format. standard data format has the form **Map<String, String>**
 
-**Output Adaptor:** transforming only output data of Emulated Sensor to the suitable format corresponding to specific provider.
-
-Selecting input datatype and provider are configured in a configuration file named “sensor.conf”. The structure of sensor.conf file includes:
+**Output Adaptor:** transforming only output data of Emulated Sensor to the suitable format corresponding to specific provider. Selecting input datatype and provider are configured in a configuration file named “sensor.conf”. The structure of sensor.conf file includes:
 
 Configuration for Emulated Sensor
 
@@ -108,7 +106,9 @@ Data reading from sensor are sent to IoT platform thingspeak through Thingspeak 
 
 # 5. Usage
 
-## 5.1.Configure for Emulated Sensor through only configuration file “sensor.conf”
+## 5.1.Configure for Emulated Sensor
+
+Configure for Emulated Sensor through only configuration file “sensor.conf”
 
 **Sensor configuration**
 
