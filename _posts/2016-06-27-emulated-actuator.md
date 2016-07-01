@@ -27,7 +27,7 @@ Don’t exist 2 actions that can changes from the same starting state to destina
 
 # 2. Architecture
 
-[Actuator Process](../images/ActuatorProcess.png)
+[Actuator Process](../images/ActuatorProcess.png) "The process of actuator"
 
 ## 2.1. Process
 
