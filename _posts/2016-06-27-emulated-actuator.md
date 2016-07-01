@@ -27,15 +27,17 @@ Don’t exist 2 actions that can changes from the same starting state to destina
 
 # 2. Architecture
 
-![Actuator Process](../images/ActuatorProcess.png "The process of actuator")
-
 ## 2.1. Process
+
+![Actuator Process](../images/ActuatorProcess.png "The process of actuator")
 
 **Description file:** including descriptions for an actuator. In this file, there have states and a set of control actions. Description file can be in a variety of formats (e.g. json, xml, csv,...). In this project, in order to easy to read and write, we choose json format for description file. 
 
 **API state & control:** being a collection of APIs in order to call control actions of the actuator. these APIs are generated depending on each type of actuator (from description file)
 
 ## 2.2. Data Model
+
+![Data Model](../images/ActuatorDataModel.png "The data model of actuator")
 
 # 3. Description File
 
@@ -65,9 +67,8 @@ Emulated Actuator has done 3 generator classes corresponding to 2 types of actua
 
 ***State Machine:** 
 
-	
+![switch machine](../images/SwitchMachine.png "The switch state machine")
 
-	
 An example about  json file for switch actuator  "actuator.data" as below:
 
 
@@ -107,6 +108,7 @@ An example about  json file for switch actuator  "actuator.data" as below:
 
 ***State Machine:**
 		
+![Door Switch](../images/DoorSwitch.png "The door state machine")
 		
 
 An example about  json file for door actuator  "actuator.data" as below:
@@ -183,6 +185,8 @@ turn-off: changing state from “ON” to “OFF”
 turn-on: changing state from “OFF” to “ON”
 
 The following picture are the result when running “EmumActuator.jar”
+
+![Door Switch](../images/DoorSwitchExperiment.png "The actuator expriment")
 
 
 
