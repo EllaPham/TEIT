@@ -6,8 +6,6 @@ date: 2016-06-27 11:11:17
 order: 1
 ---
 
-
-
 # 1. Introduction
 
 ## 1.1. Motivation
