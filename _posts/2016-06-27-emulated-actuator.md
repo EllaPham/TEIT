@@ -6,6 +6,7 @@ date: 2016-06-27 11:11:28
 order: 2
 ---
 # 1. Introduce
+
 ## 1.1.Motivation
 
 Like a sensor, an actuator is a basic part of  IoT system, focus on the control part of the system. Implementing Emulated Sensor is applied in developing IoT system. 
@@ -17,6 +18,7 @@ Emulated Actuator is designed based on the operation principles of real actuator
 Actuator has a set of state values, e.g. on/off 
 
 Actuator has a set of control actions, e.g. turn-on/turn-off
+
 From each state that executes a set of actions, e.g. state “off” can turn-on 
 
 Each action can change state from current state to another state, e.g.  turn-off changes on -> off 
@@ -24,7 +26,9 @@ Each action can change state from current state to another state, e.g.  turn-off
 Don’t exist 2 actions that can changes from the same starting state to destination state
 
 # 2. Architecture
+
 [Actuator Process](../images/ActuatorProcess.png)
+
 ## 2.1. Process
 
 **Description file:** including descriptions for an actuator. In this file, there have states and a set of control actions. Description file can be in a variety of formats (e.g. json, xml, csv,...). In this project, in order to easy to read and write, we choose json format for description file. 
@@ -98,7 +102,9 @@ An example about  json file for switch actuator  "actuator.data" as below:
     }
 
 ## 3.2.Door Actuator:
+
 ***Including 3 states:**  OPENED/ CLOSED/ LOCKED
+
 ***State Machine:**
 		
 		
@@ -177,8 +183,6 @@ turn-off: changing state from “ON” to “OFF”
 turn-on: changing state from “OFF” to “ON”
 
 The following picture are the result when running “EmumActuator.jar”
-
-
 
 
 
