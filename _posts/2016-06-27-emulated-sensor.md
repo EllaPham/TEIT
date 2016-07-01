@@ -36,7 +36,7 @@ Emulated Sensor also acts as a virtual sensor in real system by aggregating mult
 
 **Output Adaptor:** transforming key/value format to the suitable format corresponding to specific provider.
 Provider: A platform or endpoint that can receive data.
-Properties file: Selecting input data-type and provider are configured in a configuration file named “sensor.conf”. The structure of  “sensor.conf” file includes:
+Properties file: Selecting input data-type and provider are configured in a configuration file named *sensor.conf*. The structure of  *sensor.conf* file includes:
 
 Configuration for Emulated Sensor
 	
@@ -57,18 +57,18 @@ The next lines store data records, each record is a line
 
 Data columns are splitted by comma
 
-By default, Emulated sensor reads “sensor.data” file in the
+By default, Emulated sensor reads *sensor.data* file in the
 current folder for the data 
 
 CSV Adaptor reads the first line to extract name of fields  After each cycle, sensor reads the next line in CSV file. Data columns in the record are assigned corresponding to fields in header. The reading rewinds to the beginning when reaching EOF.
 
-    Ex: CSV file with name “sensor.data”
+    Ex: CSV file with name *sensor.data*
     timestamp,cpu,ram,computername
-    20052016,1.3,500,TRANGPC    
-    20052016,1.5,600,TRANGPC   
+    20052016,1.3,500,TRANGPC
+    20052016,1.5,600,TRANGPC
     20052016,1.6,800,TRANGPC
-    20052016,1.4,900,TRANGPC   
-    20052016,1.3,100,TRANGPC   
+    20052016,1.4,900,TRANGPC
+    20052016,1.3,100,TRANGPC
     20052016,1.2,200,TRANGPC
     20052016,1.6,300,TRANGPC
     20052016,1.9,400,TRANGPC
@@ -107,15 +107,15 @@ Data reading from sensor are sent to IoT platform thingspeak through Thingspeak 
 
 ## 5.1. Emulated Sensor Configuration
 
-TEIT configures for Emulated Sensor through only configuration file “sensor.conf”
+TEIT configures for Emulated Sensor through only configuration file *sensor.conf*
 
 ### 5.1.1. Sensor configuration
 
-***rate:**
+**rate:**
 
-User sends data from Emulated Sensor to outputs regularly. Duration between 2 submissions is setting up in “sensor.conf” by using a parameter “rate” (e.g. rate = 5000)
+User sends data from Emulated Sensor to outputs regularly. Duration between 2 submissions is setting up in *sensor.conf* by using a parameter *rate* (e.g. rate = 5000)
 
-***sensorID:** Each sensor can have an ID. This field can be adapt with different standard depending on the system. The sensor ID will be injected into each the data items for identifying the data.
+**sensorID:** Each sensor can have an ID. This field can be adapt with different standard depending on the system. The sensor ID will be injected into each the data items for identifying the data.
 
 ### 5.1.2. Input Configuration
 
@@ -130,7 +130,7 @@ Data format configuration of Emulated Sensor
 **Customer data:**
 Sparkfun platform:
     data=teit.sensor.PlatformSparkFun.LaptopData
-Thingspeak platform:    
+Thingspeak platform:
     data=teit.sensor.PlatformThingSpeak.ThingSpeakData 
     
 ### 5.1.3. Output Configuration
@@ -153,7 +153,7 @@ Configuration for the place that data are sent to
 		
 ## 5.2. Run Emulated sensor
 
-After data preparation and configuration in “sensor.conf”
+After data preparation and configuration in *sensor.conf*
 In command line, typing this command as below:
 
     java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar
