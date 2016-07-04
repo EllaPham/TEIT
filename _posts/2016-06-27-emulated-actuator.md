@@ -178,7 +178,7 @@ After using Generator to create json file. User runs command line to emulate ope
 
  * **action-list:** showing a set of control actions 
 
- * <action-name>: executing actions. ex: 
+ * **action-name:** executing actions. ex: 
 
   * turn-off: changing state from “ON” to “OFF”
 
