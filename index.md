@@ -19,17 +19,11 @@ However, at the development phase of the above services, app developers need an 
 We aim to develop an Emulation system, which is different with a Simulation system. The differences between Emulation system and Simulation system as bellow:
  
 | Characteristics  | Emulation  |  Simulation |
-
 |---|---|---|
-
 |  Overview |   Like the system in reality (exactly)|  Similar with real system |
-
 |Operation principles   |  Replicating internal operation of the system  |   Replicating external behaviors of the system |
-
 |   Resources| Running in the environment that is different from real the environment of real system   |Running inside application, in closed and secure environment   |
-
 |  Usage |  To be used Instead of real system  | To be used for learning and studying  |
-
 |  Experiment results |  Practical because of the effects from real systems, more interesting |  Results look nice and predictable |
 
 ### 2. PURPOSE
