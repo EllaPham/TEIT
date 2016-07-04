@@ -4,7 +4,7 @@ title: "TEIT, A Toolset for Emulated IoT Testbed"
 ---
 
 
-# 1. PROBLEM
+### 1. PROBLEM
 
 We consider a scenario of a company that provide Smart Building services. Its customers can be high buildings or hotels in the city. To build the such system, the company needs to build several types of services, which can be summarized as below:
 
@@ -25,7 +25,7 @@ We aim to develop an Emulation system, which is different with a Simulation syst
 |  Usage |  To be used Instead of real system  | To be used for learning and studying  |
 |  Experiment results |  Practical because of the effects from real systems, more interesting |  Results look nice and predictable |
 
-# 2. PURPOSE
+### 2. PURPOSE
 TEIT project towards to providing basic components to build an emulation testbed to support the development process of the system mentioned above. This project includes multiple small tools as below:
 
 * **Emulated Sensor:** enables developers to emulate real sensors that sense the environment and provide sensing data. The data can come from different emulated sources (such as log file in CSV format). Emulated sensors is highly configurable to read from different inputs and write to various outputs.	
@@ -39,7 +39,7 @@ TEIT project towards to providing basic components to build an emulation testbed
 
 * **Script to generate above resources:** Orienting user through a Wizard or interactive script to give input and configuration. Output are artifacts to run emulation resources above. 
 
-# 3. REQUIREMENT
+### 3. REQUIREMENT
 
 From real problem above, we outline the requirements for TEIT project as below: 
 
@@ -52,7 +52,7 @@ From real problem above, we outline the requirements for TEIT project as below:
 * In future, it could combine with other tool (SALSA) in order to give standard templates. For example, user needs a template for a 10-storey building, 5 rooms/floor, XYZ sensors/room, it could be generate a testbed quickly.
 These requirements will be used to evaluate the system and to guide the development process.
 
-# 4. EVALUATION METHODS
+### 4. EVALUATION METHODS
 * Features: looking for and setting up an experiment system with a variety of sensors (e.g. Smart  house with many kinds of devices). Evaluating usability, configuration, high customization and ability of quick deployment system.
 
 * Performance: looking for and setting up an experiment systems with a huge of resources (e.g. traffic with bulk vehicles, high fluctuation)
@@ -60,15 +60,15 @@ These requirements will be used to evaluate the system and to guide the developm
  * Evaluating based on stability of testbed: deploying on many computers and a lot of sensors running at the same time, the number of bugs (due to emulation toolset and environment)
  * Evaluating performance based on specific problem.
 
-# 5. SOURCES
+### 5. SOURCES
 
     https://github.com/EllaPham/TEIT 
 	
-# 6. DOCUMENT
+### 6. DOCUMENT
 
     https://ellapham.github.io/TEIT/ 
 	
-# 7. PEOPLE
+### 7. PEOPLE
 
 * Phạm Thị Như Trang (main contact)
 * Lê Đức Hùng
