@@ -64,6 +64,7 @@ current folder for the data
 * CSV Adaptor reads the first line to extract name of fields  After each cycle, sensor reads the next line in CSV file. Data columns in the record are assigned corresponding to fields in header. The reading rewinds to the beginning when reaching EOF.
 
     Ex: CSV file with name *sensor.data*
+	
     timestamp,cpu,ram,computername
     20052016,1.3,500,TRANGPC
     20052016,1.5,600,TRANGPC
