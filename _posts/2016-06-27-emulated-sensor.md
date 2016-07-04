@@ -117,15 +117,21 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
 * Input Configuration: Data format configuration of Emulated Sensor
 
  * **CSV file:** 
+ 
 		data: data=teit.sensor.CSVFile.CSVDataAdaptor 
+		
  * **Input data from keyboard:**
 
 		data=teit.sensor.PlatformConsole.ConsoleData
     
  * **Customer data:**
+ 
   * Sparkfun platform:
+  
 		data=teit.sensor.PlatformSparkFun.LaptopData
+		
   * Thingspeak platform:
+  
 		data=teit.sensor.PlatformThingSpeak.ThingSpeakData 
     
 * Output Configuration: Configuration for the place that data are sent to 
@@ -133,9 +139,11 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
  * **Console Platform:**
 
 		platform=teit.sensor.PlatformConsole.ConsolePlatform
+		
  * **Thingspeak Platform:**
 
 		platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
+		
  * **Sparkfun Platform:**
 
 		platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
@@ -147,6 +155,7 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
 #### 5.2. RUN EMULATED SENSOR 
 
 After data preparation and configuration in *sensor.conf*
+
 In command line, typing this command as below:
 
 		java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar
@@ -160,6 +169,7 @@ Sensor uses 2 adaptor types: Input Adaptor and Output Adaptor
 * **Input Adaptor:** Input Adaptor has responsibility in transforming data from a variety of formats (e.g. csv, json, xml,...) to only format in Map<String,String>. This map is input data for Emulated Sensor. Now, we have accomplished: 
 
  * CSVAdaptor: the adaptor for csv format. In future, TEIT will implement with a lot of Adaptors that inherit InputAdaptor in many data formats (e.g. json, xml,...)
+ 
  * SystemMonitoringAdaptor: sensing data of system (e.g. CPU, RAM,...)
 
 * **Output Adaptor:** Output Adaptor has responsibility in transforming data from only format Map<String,String> to a variety of outputs, each output is corresponding to each provider. Now, TEIT has Adaptors for providers: Sparkfun, thingspeak, MQTT and console. In future, TEIT will implement output adaptors corresponding to providers, these adaptors inherit Output Adaptor.
