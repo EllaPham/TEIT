@@ -15,15 +15,15 @@ Like a sensor, an actuator is a basic part of  IoT system, focus on the control 
 
 Emulated Actuator is designed based on the operation principles of real actuator. These operation principles as below:
 
-Actuator has a set of state values, e.g. on/off 
+* Actuator has a set of state values, e.g. on/off 
 
-Actuator has a set of control actions, e.g. turn-on/turn-off
+* Actuator has a set of control actions, e.g. turn-on/turn-off
 
-From each state that executes a set of actions, e.g. state “off” can turn-on 
+* From each state that executes a set of actions, e.g. state “off” can turn-on 
 
-Each action can change state from current state to another state, e.g.  turn-off changes on -> off 
+* Each action can change state from current state to another state, e.g.  turn-off changes on -> off 
 
-Don’t exist 2 actions that can changes from the same starting state to destination state
+* Don’t exist 2 actions that can changes from the same starting state to destination state
 
 # 2. Architecture
 
@@ -178,7 +178,7 @@ After using Generator to create json file. User runs command line to emulate ope
 
 **action-list:** showing a set of control actions 
 
-**<action-name>:** executing actions. ex: 
+**<action-name>:**  executing actions. ex: 
 
 turn-off: changing state from “ON” to “OFF”
 

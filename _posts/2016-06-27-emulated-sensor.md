@@ -38,11 +38,11 @@ Emulated Sensor also acts as a virtual sensor in real system by aggregating mult
 Provider: A platform or endpoint that can receive data.
 Properties file: Selecting input data-type and provider are configured in a configuration file named *sensor.conf*. The structure of  *sensor.conf* file includes:
 
-Configuration for Emulated Sensor
+* Configuration for Emulated Sensor
 	
-Configuration for Input
+* Configuration for Input
 	
-Configuration for Output
+* Configuration for Output
 	
 # 3. Input adaptor
 
@@ -51,16 +51,16 @@ Configuration for Output
 The basic input of Emulated Sensor is CSV files. The purpose of using csv file is emulating an existing scenario. For example, user needs to emulate the temperature of a room in one day, these data are  recorded  in CSV file (log file) 
 The structure of CSV file as below:
 
-The first line consists of field names (the first line is header) 
+* The first line consists of field names (the first line is header) 
 
-The next lines store data records, each record is a line
+* The next lines store data records, each record is a line
 
-Data columns are splitted by comma
+* Data columns are splitted by comma
 
-By default, Emulated sensor reads *sensor.data* file in the
+* By default, Emulated sensor reads *sensor.data* file in the
 current folder for the data 
 
-CSV Adaptor reads the first line to extract name of fields  After each cycle, sensor reads the next line in CSV file. Data columns in the record are assigned corresponding to fields in header. The reading rewinds to the beginning when reaching EOF.
+* CSV Adaptor reads the first line to extract name of fields  After each cycle, sensor reads the next line in CSV file. Data columns in the record are assigned corresponding to fields in header. The reading rewinds to the beginning when reaching EOF.
 
     Ex: CSV file with name *sensor.data*
     timestamp,cpu,ram,computername
@@ -179,11 +179,10 @@ Output Adaptor has responsibility in transforming data from only format Map<Stri
 
 Properties file is unique configuration file  for sensor that is provided to user. User uses this file to configure to sensor depending on their require. Now, Configuration file of TEIT includes: 
 
-Allowing to choose input data and output (provider) 
-Configure delay time for 2 times sequent data sending
-Configure parameters for adaptors: CSV, sparkfun, thingspeak and MQTT
-
-Configure some properties for sensor. Now, setting value for sensorID, sensorName
+* Allowing to choose input data and output (provider) 
+* Configure delay time for 2 times sequent data sending
+* Configure parameters for adaptors: CSV, sparkfun, thingspeak and MQTT
+* Configure some properties for sensor. Now, setting value for sensorID, sensorName
 
 In future, TEIT will define other properties for a variety of sensors and other providers.
 
