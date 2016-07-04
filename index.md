@@ -16,7 +16,8 @@ We consider a scenario of a company that provide Smart Building services. Its cu
 
 However, at the development phase of the above services, app developers need an emulation environment for testing and developing services. They create sensors and generate corresponding data with circumstances. Emulation system can be deployed on Cloud by running emulation sensors/actuators, sending data to services, services feedback controlling messages to actuators.
 
-We aim to develop an Emulation system, which is different with a Simulation system. The differences between Emulation system and Simulation system as bellow: 
+We aim to develop an Emulation system, which is different with a Simulation system. The differences between Emulation system and Simulation system as bellow:
+ 
 | Characteristics  | Emulation  |  Simulation |
 |---|---|---|
 |  Overview |   Like the system in reality (exactly)|  Similar with real system |
