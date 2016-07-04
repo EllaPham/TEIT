@@ -12,7 +12,7 @@ order: 1
 
 As mentioned in TEIT project motivation, development and testing phases of problems in IoT system need devices and data corresponding to real scenarios. Sensor is a basic part of  IoT system. The problem is needing to create a variety of sensors dynamically. Emulated Sensor solved the problem that needs to use a lot of sensor types in order to provide for testing IoT applications. Using Emulated Sensor for development and experiments is easier, more flexible and cheaper than setting up real sensors. If using, that means sensors is set up already, then it is still easy.
 
-## 1.2. OVERVIEW
+#### 1.2. OVERVIEW
 
 Emulated Sensor emulates operation principles of a real actuator, including 3 steps:
 
