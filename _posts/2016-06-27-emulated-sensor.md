@@ -58,6 +58,7 @@ The structure of CSV file as below:
 * Data columns are splitted by comma
 
 * By default, Emulated sensor reads *sensor.data* file in the
+
 current folder for the data 
 
 * CSV Adaptor reads the first line to extract name of fields  After each cycle, sensor reads the next line in CSV file. Data columns in the record are assigned corresponding to fields in header. The reading rewinds to the beginning when reaching EOF.
