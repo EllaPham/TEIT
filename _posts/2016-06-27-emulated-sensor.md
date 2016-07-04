@@ -136,19 +136,19 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
     
 * Output Configuration: Configuration for the place that data are sent to 
 
-  * **Console Platform:**
+   * **Console Platform:**
 
 			platform=teit.sensor.PlatformConsole.ConsolePlatform
 		
-  * **Thingspeak Platform:**
+   * **Thingspeak Platform:**
 
 			platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
 		
-  * **Sparkfun Platform:**
+   * **Sparkfun Platform:**
 
 			platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
     
-  * **MQTT:** 
+   * **MQTT:** 
 
 			platform=teit.sensor.MQTT.MQTTOutput 
 		
@@ -176,10 +176,10 @@ Sensor uses 2 adaptor types: Input Adaptor and Output Adaptor
 
  * **Properties file:** Properties file is unique configuration file  for sensor that is provided to user. User uses this file to configure to sensor depending on their require. Now, Configuration file of TEIT includes: 
 
-   * Allowing to choose input data and output (provider) 
-   * Configure delay time for 2 times sequent data sending
-   * Configure parameters for adaptors: CSV, sparkfun, thingspeak and MQTT
-   * Configure some properties for sensor. Now, setting value for sensorID, sensorName
+    * Allowing to choose input data and output (provider) 
+    * Configure delay time for 2 times sequent data sending
+    * Configure parameters for adaptors: CSV, sparkfun, thingspeak and MQTT
+    * Configure some properties for sensor. Now, setting value for sensorID, sensorName
 
 In future, TEIT will define other properties for a variety of sensors and other providers.
 
