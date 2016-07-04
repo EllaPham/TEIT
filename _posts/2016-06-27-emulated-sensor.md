@@ -114,7 +114,7 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
 
   * **sensorID:** Each sensor can have an ID. This field can be adapt with different standard depending on the system. The sensor ID will be injected into each the data items for identifying the data.
 
-* Input Configuration: Data format configuration of Emulated Sensor
+* **Input Configuration:** Data format configuration of Emulated Sensor
 
   * **CSV file:** 
  
@@ -126,11 +126,11 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
     
   * **Customer data:**
  
-	* Sparkfun platform:
+	* **Sparkfun platform:**
   
 			data=teit.sensor.PlatformSparkFun.LaptopData
 		
-	* Thingspeak platform:
+	* **Thingspeak platform:**
   
 			data=teit.sensor.PlatformThingSpeak.ThingSpeakData 
     
