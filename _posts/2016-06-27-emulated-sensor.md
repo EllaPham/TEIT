@@ -110,21 +110,21 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
 
 * Sensor configuration:
 
- * **rate:** User sends data from Emulated Sensor to outputs regularly. Duration between 2 submissions is setting up in *sensor.conf* by using a parameter *rate* (e.g. rate = 5000)
+  * **rate:** User sends data from Emulated Sensor to outputs regularly. Duration between 2 submissions is setting up in *sensor.conf* by using a parameter *rate* (e.g. rate = 5000)
 
- * **sensorID:** Each sensor can have an ID. This field can be adapt with different standard depending on the system. The sensor ID will be injected into each the data items for identifying the data.
+  * **sensorID:** Each sensor can have an ID. This field can be adapt with different standard depending on the system. The sensor ID will be injected into each the data items for identifying the data.
 
 * Input Configuration: Data format configuration of Emulated Sensor
 
- * **CSV file:** 
+  * **CSV file:** 
  
 			data: data=teit.sensor.CSVFile.CSVDataAdaptor 
 		
- * **Input data from keyboard:**
+  * **Input data from keyboard:**
 
 			data=teit.sensor.PlatformConsole.ConsoleData
     
- * **Customer data:**
+  * **Customer data:**
  
 	* Sparkfun platform:
   
@@ -136,19 +136,19 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
     
 * Output Configuration: Configuration for the place that data are sent to 
 
- * **Console Platform:**
+  * **Console Platform:**
 
 			platform=teit.sensor.PlatformConsole.ConsolePlatform
 		
- * **Thingspeak Platform:**
+  * **Thingspeak Platform:**
 
 			platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
 		
- * **Sparkfun Platform:**
+  * **Sparkfun Platform:**
 
 			platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
     
- * **MQTT:** 
+  * **MQTT:** 
 
 			platform=teit.sensor.MQTT.MQTTOutput 
 		
@@ -168,18 +168,18 @@ Sensor uses 2 adaptor types: Input Adaptor and Output Adaptor
 
 * **Input Adaptor:** Input Adaptor has responsibility in transforming data from a variety of formats (e.g. csv, json, xml,...) to only format in Map<String,String>. This map is input data for Emulated Sensor. Now, we have accomplished: 
 
- * CSVAdaptor: the adaptor for csv format. In future, TEIT will implement with a lot of Adaptors that inherit InputAdaptor in many data formats (e.g. json, xml,...)
+ * **CSVAdaptor:** the adaptor for csv format. In future, TEIT will implement with a lot of Adaptors that inherit InputAdaptor in many data formats (e.g. json, xml,...)
  
- * SystemMonitoringAdaptor: sensing data of system (e.g. CPU, RAM,...)
+ * **SystemMonitoringAdaptor:** sensing data of system (e.g. CPU, RAM,...)
 
 * **Output Adaptor:** Output Adaptor has responsibility in transforming data from only format Map<String,String> to a variety of outputs, each output is corresponding to each provider. Now, TEIT has Adaptors for providers: Sparkfun, thingspeak, MQTT and console. In future, TEIT will implement output adaptors corresponding to providers, these adaptors inherit Output Adaptor.
 
  * **Properties file:** Properties file is unique configuration file  for sensor that is provided to user. User uses this file to configure to sensor depending on their require. Now, Configuration file of TEIT includes: 
 
-  * Allowing to choose input data and output (provider) 
-  * Configure delay time for 2 times sequent data sending
-  * Configure parameters for adaptors: CSV, sparkfun, thingspeak and MQTT
-  * Configure some properties for sensor. Now, setting value for sensorID, sensorName
+   * Allowing to choose input data and output (provider) 
+   * Configure delay time for 2 times sequent data sending
+   * Configure parameters for adaptors: CSV, sparkfun, thingspeak and MQTT
+   * Configure some properties for sensor. Now, setting value for sensorID, sensorName
 
 In future, TEIT will define other properties for a variety of sensors and other providers.
 
