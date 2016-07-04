@@ -25,6 +25,7 @@ We aim to develop an Emulation system, which is different with a Simulation syst
 |   Resources| Running in the environment that is different from real the environment of real system   |Running inside application, in closed and secure environment   |
 |  Usage |  To be used Instead of real system  | To be used for learning and studying  |
 |  Experiment results |  Practical because of the effects from real systems, more interesting |  Results look nice and predictable |
+|  Deployment |  Hardly  |  Easily (single click) |
 
 ### 2. PURPOSE
 TEIT project towards to providing basic components to build an emulation testbed to support the development process of the system mentioned above. This project includes multiple small tools as below:
