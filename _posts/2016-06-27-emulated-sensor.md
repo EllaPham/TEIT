@@ -108,7 +108,7 @@ Data reading from sensor are sent to IoT platform thingspeak through Thingspeak 
 
 TEIT configures for Emulated Sensor through only configuration file *sensor.conf*
 
-* Sensor configuration:
+* **Sensor configuration:**
 
   * **rate:** User sends data from Emulated Sensor to outputs regularly. Duration between 2 submissions is setting up in *sensor.conf* by using a parameter *rate* (e.g. rate = 5000)
 
@@ -134,7 +134,7 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
   
 			data=teit.sensor.PlatformThingSpeak.ThingSpeakData 
     
-* Output Configuration: Configuration for the place that data are sent to 
+* **Output Configuration:** Configuration for the place that data are sent to 
 
    * **Console Platform:**
 
