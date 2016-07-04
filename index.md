@@ -64,11 +64,7 @@ These requirements will be used to evaluate the system and to guide the developm
 
     https://github.com/EllaPham/TEIT 
 	
-### 6. DOCUMENT
-
-    https://ellapham.github.io/TEIT/ 
-	
-### 7. PEOPLE
+### 6. PEOPLE
 
 * Phạm Thị Như Trang (main contact)
 * Lê Đức Hùng
