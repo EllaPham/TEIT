@@ -55,11 +55,13 @@ From real problem above, we outline the requirements for TEIT project as below:
 These requirements will be used to evaluate the system and to guide the development process.
 
 ### 4. EVALUATION METHODS
+
 * **Features:** looking for and setting up an experiment system with a variety of sensors (e.g. Smart  house with many kinds of devices). Evaluating usability, configuration, high customization and ability of quick deployment system.
 
 * **Performance:** looking for and setting up an experiment systems with a huge of resources (e.g. traffic with bulk vehicles, high fluctuation)
 
  * Evaluating based on stability of testbed:** deploying on many computers and a lot of sensors running at the same time, the number of bugs (due to emulation toolset and environment)
+ 
  * Evaluating performance based on specific problem.
 
 ### 5. SOURCES
