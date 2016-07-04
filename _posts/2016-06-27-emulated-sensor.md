@@ -126,11 +126,11 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
     
  * **Customer data:**
  
-   * Sparkfun platform:
+	* Sparkfun platform:
   
 		data=teit.sensor.PlatformSparkFun.LaptopData
 		
-   * Thingspeak platform:
+	* Thingspeak platform:
   
 		data=teit.sensor.PlatformThingSpeak.ThingSpeakData 
     
