@@ -5,13 +5,13 @@ category: doc
 date: 2016-06-27 11:11:28
 order: 2
 ---
-# 1. Introduce
+### 1. INTRODUCE
 
-## 1.1.Motivation
+#### 1.1.MOTIVATION
 
 Like a sensor, an actuator is a basic part of  IoT system, focus on the control part of the system. Implementing Emulated Sensor is applied in developing IoT system. 
 
-## 1.2. Overview Emulated Actuator
+#### 1.2. OVERVIEW
 
 Emulated Actuator is designed based on the operation principles of real actuator. These operation principles as below:
 
@@ -25,9 +25,9 @@ Emulated Actuator is designed based on the operation principles of real actuator
 
 * Don’t exist 2 actions that can changes from the same starting state to destination state
 
-# 2. Architecture
+### 2. ARCHITECTURE
 
-## 2.1. Process
+#### 2.1. PROCESS
 
 ![Actuator Process](../images/ActuatorProcess.png "The process of actuator")
 
@@ -35,37 +35,37 @@ Emulated Actuator is designed based on the operation principles of real actuator
 
 **API state & control:** being a collection of APIs in order to call control actions of the actuator. these APIs are generated depending on each type of actuator (from description file)
 
-## 2.2. Data Model
+#### 2.2. DATA MODEL
 
 ![Data Model](../images/ActuatorDataModel.png "The data model of actuator")
 
-# 3. Description File
+### 3. DESCRIPTION FILE
 
 Description file is input for “EmumActutor.jar”. The content of this file as below: 
 
-***stateList:** a set of state values of the actuator
+* **stateList:** a set of state values of the actuator
 
-***currentState:** state at the current time 
+* **currentState:** state at the current time 
 
-***controlList:** a set of control actions. Each record of this collection includes fields as below: 
+* **controlList:** a set of control actions. Each record of this collection includes fields as below: 
 
-**Name:** name of control action 
+ * **Name:** name of control action 
 
-**startState:** starting state 
+ * **startState:** starting state 
 
-**endState:** ending state 
+ * **endState:** ending state 
 
-**parameter:** other parameters
+ * **parameter:** other parameters
 
 Json file is generated from Generator classes. Depending on each actuator of user, the application provides for user a Generator class corresponding to that actuator.
 
 Emulated Actuator has done 3 generator classes corresponding to 2 types of actuator. We will show as below
 
-## 3.1. Switch Actuator:
+#### 3.1. SWITCH ACTUATOR 
 
-***Including 2 states:**   ON/OFF
+* **Including 2 states:**   ON/OFF
 
-***State Machine:** 
+* **State Machine:** 
 
 ![switch machine](../images/SwitchMachine.png "The switch state machine")
 
@@ -102,11 +102,11 @@ An example about  json file for switch actuator  "actuator.data" as below:
       } ]
     }
 
-## 3.2.Door Actuator:
+#### 3.2.DOOR ACTUATOR 
 
-***Including 3 states:**  OPENED/ CLOSED/ LOCKED
+* **Including 3 states:**  OPENED/ CLOSED/ LOCKED
 
-***State Machine:**
+* **State Machine:**
 		
 ![Door Switch](../images/DoorSwitch.png "The door state machine")
 		
@@ -162,7 +162,7 @@ An example about  json file for door actuator  "actuator.data" as below:
       } ]
     }
 
-# 4. Usage
+### 4. USAGE
 
     command --> (json -> actuator -> API) --> state 
     
@@ -170,19 +170,19 @@ After using Generator to create json file. User runs command line to emulate ope
 
     java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar                                                      + [command]
 
-**[Command]** as below:
+* **[Command]** as below:
 
-**state-list:** showing a collection of state values
+ * **state-list:** showing a collection of state values
 
-**current-state:** showing the state value at the current time 
+ * **current-state:** showing the state value at the current time 
 
-**action-list:** showing a set of control actions 
+ * **action-list:** showing a set of control actions 
 
-**<action-name>:**  executing actions. ex: 
+ * **<action-name>:**  executing actions. ex: 
 
-turn-off: changing state from “ON” to “OFF”
+  * turn-off: changing state from “ON” to “OFF”
 
-turn-on: changing state from “OFF” to “ON”
+  * turn-on: changing state from “OFF” to “ON”
 
 The following picture are the result when running “EmumActuator.jar”
 
