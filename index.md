@@ -45,13 +45,13 @@ TEIT project towards to providing basic components to build an emulation testbed
 
 From real problem above, we outline the requirements for TEIT project as below: 
 
-* General tools emulate a lot of scenarios. First, focusing on static scenarios (e.g. home automation, building automation,...), then, gradually shifting to dynamic scenario (e.g. traffic, fleet management, battlefield,...)
+* **General tools emulate a lot of scenarios**. First, focusing on static scenarios (e.g. home automation, building automation,...), then, gradually shifting to dynamic scenario (e.g. traffic, fleet management, battlefield,...)
 
 * **Extensibility:** clear interfaces that could be added more new features
 
 * **Usability:** quick and simple configuration. Tools need “small and beauty”  and give user a lot of options.
 
-* In future, it could combine with other tool (SALSA) in order to give standard templates. For example, user needs a template for a 10-storey building, 5 rooms/floor, XYZ sensors/room, it could be generate a testbed quickly.
+* **In future**, it could combine with other tool (SALSA) in order to give standard templates. For example, user needs a template for a 10-storey building, 5 rooms/floor, XYZ sensors/room, it could be generate a testbed quickly.
 These requirements will be used to evaluate the system and to guide the development process.
 
 ### 4. EVALUATION METHODS
@@ -60,9 +60,9 @@ These requirements will be used to evaluate the system and to guide the developm
 
 * **Performance:** looking for and setting up an experiment systems with a huge of resources (e.g. traffic with bulk vehicles, high fluctuation)
 
- * Evaluating based on stability of testbed:** deploying on many computers and a lot of sensors running at the same time, the number of bugs (due to emulation toolset and environment)
+* **Evaluating based on stability of testbed:** deploying on many computers and a lot of sensors running at the same time, the number of bugs (due to emulation toolset and environment)
  
- * Evaluating performance based on specific problem.
+* **Evaluating performance** based on specific problem.
 
 ### 5. SOURCES
 
