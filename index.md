@@ -61,10 +61,15 @@ These requirements will be used to evaluate the system and to guide the developm
  * Evaluating performance based on specific problem.
 
 # 5. SOURCES
+
     https://github.com/EllaPham/TEIT 
+	
 # 6. DOCUMENT
+
     https://ellapham.github.io/TEIT/ 
+	
 # 7. PEOPLE
+
 * Phạm Thị Như Trang (main contact)
 * Lê Đức Hùng
 * Nguyễn Bình Minh
