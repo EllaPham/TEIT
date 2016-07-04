@@ -8,11 +8,11 @@ title: "TEIT, A Toolset for Emulated IoT Testbed"
 
 We consider a scenario of a company that provide Smart Building services. Its customers can be high buildings or hotels in the city. To build the such system, the company needs to build several types of services, which can be summarized as below:
 
-To sense and control the environment (Heating, ventilating, air, cooling, light, etc). The need information about temperature, humidity,  concentration of CO2, brightness of each room, etc.
+* To sense and control the environment (Heating, ventilating, air, cooling, light, etc). The need information about temperature, humidity,  concentration of CO2, brightness of each room, etc.
 
-To interact with human activity. They need information about the presence of people by detecting movements, light interacting, doors opening, card scanning, etc.
+* To interact with human activity. They need information about the presence of people by detecting movements, light interacting, doors opening, card scanning, etc.
 
-To notify or to send alarm in emergency. They need information about smoke level, fire detection, electronic failures and energy decrease detecting, etc.
+* To notify or to send alarm in emergency. They need information about smoke level, fire detection, electronic failures and energy decrease detecting, etc.
 
 However, at the development phase of the above services, app developers need an emulation environment for testing and developing services. They create sensors and generate corresponding data with circumstances. Emulation system can be deployed on Cloud by running emulation sensors/actuators, sending data to services, services feedback controlling messages to actuators.
 
