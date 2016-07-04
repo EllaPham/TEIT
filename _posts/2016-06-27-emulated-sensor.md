@@ -118,11 +118,11 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
 
  * **CSV file:** 
  
-		data: data=teit.sensor.CSVFile.CSVDataAdaptor 
+			data: data=teit.sensor.CSVFile.CSVDataAdaptor 
 		
  * **Input data from keyboard:**
 
-		data=teit.sensor.PlatformConsole.ConsoleData
+			data=teit.sensor.PlatformConsole.ConsoleData
     
  * **Customer data:**
  
@@ -138,19 +138,19 @@ TEIT configures for Emulated Sensor through only configuration file *sensor.conf
 
  * **Console Platform:**
 
-		platform=teit.sensor.PlatformConsole.ConsolePlatform
+			platform=teit.sensor.PlatformConsole.ConsolePlatform
 		
  * **Thingspeak Platform:**
 
-		platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
+			platform=teit.sensor.PlatformThingSpeak.ThingSpeakPlatform
 		
  * **Sparkfun Platform:**
 
-		platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
+			platform=teit.sensor.PlatformSparkFun.SparkfunPlatform
     
  * **MQTT:** 
 
-		platform=teit.sensor.MQTT.MQTTOutput 
+			platform=teit.sensor.MQTT.MQTTOutput 
 		
 #### 5.2. RUN EMULATED SENSOR 
 
