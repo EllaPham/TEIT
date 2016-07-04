@@ -35,8 +35,8 @@ Emulated Sensor also acts as a virtual sensor in real system by aggregating mult
 * **Input Adaptor:** transforming data of real sensors from different formats to key/value format
 
 * **Output Adaptor:** transforming key/value format to the suitable format corresponding to specific provider.
-* Provider: A platform or endpoint that can receive data.
-* Properties file: Selecting input data-type and provider are configured in a configuration file named *sensor.conf*. The structure of  *sensor.conf* file includes:
+* **Provider:** A platform or endpoint that can receive data.
+* **Properties file:** Selecting input data-type and provider are configured in a configuration file named *sensor.conf*. The structure of  *sensor.conf* file includes:
 
   * Configuration for Emulated Sensor
 	
