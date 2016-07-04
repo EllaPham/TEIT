@@ -31,9 +31,9 @@ Emulated Actuator is designed based on the operation principles of real actuator
 
 ![Actuator Process](../images/ActuatorProcess.png "The process of actuator")
 
-**Description file:** including descriptions for an actuator. In this file, there have states and a set of control actions. Description file can be in a variety of formats (e.g. json, xml, csv,...). In this project, in order to easy to read and write, we choose json format for description file. 
+* **Description file:** including descriptions for an actuator. In this file, there have states and a set of control actions. Description file can be in a variety of formats (e.g. json, xml, csv,...). In this project, in order to easy to read and write, we choose json format for description file. 
 
-**API state & control:** being a collection of APIs in order to call control actions of the actuator. these APIs are generated depending on each type of actuator (from description file)
+* **API state & control:** being a collection of APIs in order to call control actions of the actuator. these APIs are generated depending on each type of actuator (from description file)
 
 #### 2.2. DATA MODEL
 
@@ -178,7 +178,7 @@ After using Generator to create json file. User runs command line to emulate ope
 
  * **action-list:** showing a set of control actions 
 
- * **<action-name>:**  executing actions. ex: 
+ * <action-name>: executing actions. ex: 
 
   * turn-off: changing state from “ON” to “OFF”
 
