@@ -38,11 +38,11 @@ Emulated Sensor also acts as a virtual sensor in real system by aggregating mult
 * Provider: A platform or endpoint that can receive data.
 * Properties file: Selecting input data-type and provider are configured in a configuration file named *sensor.conf*. The structure of  *sensor.conf* file includes:
 
- * Configuration for Emulated Sensor
+  * Configuration for Emulated Sensor
 	
- * Configuration for Input
+  * Configuration for Input
 	
- * Configuration for Output
+  * Configuration for Output
 	
 ### 3. INPUT ADAPTOR 
 

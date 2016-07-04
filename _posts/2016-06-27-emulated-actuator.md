@@ -168,7 +168,7 @@ An example about  json file for door actuator  "actuator.data" as below:
     
 After using Generator to create json file. User runs command line to emulate operation of the actuator: 
 
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar                                                      + [command]
+    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar [command]
 
 * **[Command]** as below:
 
