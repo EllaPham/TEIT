@@ -75,5 +75,5 @@ These requirements will be used to evaluate the system and to guide the developm
 * Nguyễn Bình Minh
 * Nguyễn Hữu Đức
 
-For any kind of queries, please contact trangptn.hut@gmail.com 
+For any kind of queries, please contact <trangptn.hut@gmail.com>
 This project is developing at Hanoi University of Science and Technology (HUST).																										
