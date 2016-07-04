@@ -180,9 +180,9 @@ After using Generator to create json file. User runs command line to emulate ope
 
  * **action-name:** executing actions. ex: 
 
-   * * turn-off: changing state from “ON” to “OFF”
+    * turn-off: changing state from “ON” to “OFF”
 
-   * * turn-on: changing state from “OFF” to “ON”
+    * turn-on: changing state from “OFF” to “ON”
 
 The following picture are the result when running “EmumActuator.jar”
 
