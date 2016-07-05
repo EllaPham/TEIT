@@ -49,13 +49,13 @@ Description file is input for “EmumActutor.jar”. The content of this file as
 
 * **controlList:** a set of control actions. Each record of this collection includes fields as below: 
 
- * **Name:** name of control action 
+	* **Name:** name of control action 
 
- * **startState:** starting state 
+	* **startState:** starting state 
 
- * **endState:** ending state 
+	* **endState:** ending state 
 
- * **parameter:** other parameters
+	* **parameter:** other parameters
 
 Json file is generated from Generator classes. Depending on each actuator of user, the application provides for user a Generator class corresponding to that actuator.
 
