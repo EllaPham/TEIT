@@ -88,18 +88,7 @@ An example about  json file for switch actuator  "actuator.data" as below:
         "parameter" : null
       } ],
       "currentState" : null,
-      "stateList" : [ "ON", "OFF" ],
-      "controlList" : [ {
-        "name" : "turn-on",
-        "startState" : "OFF",
-        "endState" : "ON",
-        "parameter" : null
-      }, {
-        "name" : "turn-off",
-        "startState" : "ON",
-        "endState" : "OFF",
-        "parameter" : null
-      } ]
+      "stateList" : [ "ON", "OFF" ]
     }
 
 #### 3.2.DOOR ACTUATOR 
@@ -138,28 +127,7 @@ An example about  json file for door actuator  "actuator.data" as below:
         "parameter" : null
       } ],
       "currentState" : "LOCKED",
-      "stateList" : [ "OPENED", "CLOSED", "LOCKED" ],
-      "controlList" : [ {
-        "name" : "open-door",
-        "startState" : "CLOSED",
-        "endState" : "OPENED",
-        "parameter" : null
-      }, {
-        "name" : "close-door",
-        "startState" : "OPENED",
-        "endState" : "CLOSED",
-        "parameter" : null
-      }, {
-        "name" : "knock-door",
-        "startState" : "CLOSED",
-        "endState" : "KNOCKED",
-        "parameter" : null
-      }, {
-        "name" : "unknock-door",
-        "startState" : "KNOCKED",
-        "endState" : "CLOSED",
-        "parameter" : null
-      } ]
+      "stateList" : [ "OPENED", "CLOSED", "LOCKED" ]    
     }
 
 ### 4. USAGE
