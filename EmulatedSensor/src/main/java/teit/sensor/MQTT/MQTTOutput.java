@@ -5,6 +5,8 @@
  */
 package teit.sensor.MQTT;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
@@ -24,6 +26,11 @@ public class MQTTOutput implements OutputAdaptor {
     final static org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(MQTTOutput.class);
     public MqttClient queueClient = null;
     private String topic = "unknown";
+    static ObjectMapper mapper;
+
+    public MQTTOutput() {
+        mapper = new ObjectMapper();
+    }
 
     @Override
     public boolean init(Properties prop) {
@@ -51,15 +58,14 @@ public class MQTTOutput implements OutputAdaptor {
     public boolean pushData(Map<String, String> values) {
         int qos = 2;
         try {
-            String content = values.toString();
+            String content = mapper.writeValueAsString(values);
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
 
             queueClient.publish(topic, message);
             LOGGER.debug("Published: " + values);
 
-        } catch (MqttException me) {
-            System.out.println("reason " + me.getReasonCode());
+        } catch (JsonProcessingException | MqttException me) {
             System.out.println("msg " + me.getMessage());
             System.out.println("loc " + me.getLocalizedMessage());
             System.out.println("cause " + me.getCause());
