@@ -155,5 +155,14 @@ The following picture are the result when running “EmumActuator.jar”
 ![Door Switch](../images/DoorSwitchExperiment.png "The actuator expriment")
 
 
+### 5. SCOPE AND DEVELOPMENT ORIENTATION 
+
+We have accomplished the basic flow of Emulated Actuator based on State machine. This Emulated Actuator is run by command line. Emulated Actuator provides user Generators in order to generate description file in Json format. Generators have implemented: 
+
+* Switch Generator
+
+* Door Generator
+
+In future, we are implementing other Generators following user’s requirement and Range Generator
 
 
