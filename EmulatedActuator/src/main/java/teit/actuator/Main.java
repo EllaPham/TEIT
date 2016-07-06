@@ -28,18 +28,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         String jsonString;
-
-        //convert json string to object java
+        
         if (args.length > 0) {
             EnumState enumState;
-//        ObjectMapper mapper = new ObjectMapper();
             ObjectMapper mapper = new ObjectMapper();
             enumState = mapper.readValue(new File("actuator.data"), EnumState.class);
             currentState = getState(enumState).get(0);//???
             switch (args[0]) {
-                case "state-list":
-                    stateList = getState(enumState);
-                    System.out.println(stateList);
+                case "state-list":                   
+                    System.out.println(getState(enumState));
                     break;
                 case "current-state":
                     currentState = enumState.getCurrentState();
@@ -69,16 +66,7 @@ public class Main {
             currentState = stateList.get(0);
             currentState = getCurrentState(enumControl);
             actionList = getActionList(controlList);
-//=======
-//        EnumState enumState;
-//        ObjectMapper mapper = new ObjectMapper();
-//        
-//        if (args.length > 0) {
-//            enumState = mapper.readValue(new File(args[0]), EnumState.class);
-//        } else {
-//            String jsonString = SamplesGenerator.generateSwitchDesciption();
-//            enumState = mapper.readValue(jsonString, EnumState.class);
-//>>>>>>> 68826ba8e95bcfb4dfc64702ea1ba83305c8fbe7
+
         }
 
         System.out.println("CURRENT State: " + currentState);
@@ -116,12 +104,10 @@ public class Main {
         for (EnumControl aControl : controlLst) {
             if (aControl.getName().equalsIgnoreCase(actionName)) {
                 eState.setCurrentState(aControl.getEndState());
-                // tim thay la return luon
-                return eState;
+            return eState;
             }
 
-        }
-        // return null tuc la khong tim thay action trung ten
+        }        
         return null;
     }
 

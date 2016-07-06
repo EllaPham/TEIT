@@ -12,57 +12,52 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import teit.actuator.model.EnumState;
 import teit.actuator.model.EnumControl;
+import teit.actuator.model.EnumState;
+import teit.actuator.model.RangeState;
 
 /**
  *
- * @author trang
+ * @author Trang
  */
-public class SamplesGenerator {
-static private String jsonString;
+public class RangeGenerator {
+    static private String jsonString;
     public static void main(String[] args) throws IOException {
         jsonString = generateSwitchDesciption();
         writeToFile(jsonString); 
         
-
-    }
-    
+}
     public static String generateSwitchDesciption() throws JsonProcessingException{
         
-        EnumState aState = new EnumState();
+        RangeState aRangeState = new RangeState();
         EnumControl aControl = new EnumControl();
-        EnumControl aControl2 = new EnumControl();
-
-        List<EnumControl> LControl = new ArrayList<>();
-        List<String> lState = new ArrayList<>();
-        lState.add("ON");
-        lState.add("OFF");
        
+        List<EnumControl> LControl = new ArrayList<>();
+       
+       aRangeState.setStartRange(-100);
+       aRangeState.setEndRange(100);
+       aRangeState.setCurrentState(0);
+       aRangeState.setStep(2);
         //Khoi tao cho State      
-        aState.setDescription("Switch");
-        aState.setStateList(lState);
-        //Khoi tao cho Control 1
-        aControl.setName("turn-on");
-        aControl.setStartState("OFF");
-        aControl.setEndState("ON");
+       
+//        //Khoi tao cho Control 1
+        aControl.setName("set-value");
+        aControl.setStartState("");
+        aControl.setEndState("");
         // Khởi tạo cho Control 2
-        aControl2.setName("turn-off");
-        aControl2.setStartState("ON");
-        aControl2.setEndState("OFF");
-        //LControl list add
+       
         LControl.add(aControl);
-        LControl.add(aControl2);
-        aState.setControlList(LControl);
+       
+        aRangeState.setControls(LControl);
         
         ObjectMapper mapper = new ObjectMapper();     
-        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(aState);
+        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(aRangeState);
         System.out.println(json);
         return json;
     }
 
     static public void writeToFile(String jsonStr) throws IOException{
-        File file = new File("c:/switch.json");
+        File file = new File("c:/rangeswitch.json");
 		
 
 		try (FileOutputStream fop = new FileOutputStream(file)) {
@@ -85,8 +80,4 @@ static private String jsonString;
 			e.printStackTrace();
 		}
 	}
-                            }
-	
-    
-
-
+}

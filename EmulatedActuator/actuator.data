@@ -1,16 +1,48 @@
 {
-  "description" : "Switch",
-  "currentState" : "OFF",
-  "stateList" : [ "ON", "OFF", "STUCK" ],
-  "controlList" : [ {
-    "name" : "turn-on",
-    "startState" : "OFF",
-    "endState" : "ON",
+  "description" : "door_control",
+  "states" : [ "OPENED", "CLOSED", "LOCKED" ],
+  "controls" : [ {
+    "name" : "open-door",
+    "startState" : "CLOSED",
+    "endState" : "OPENED",
     "parameter" : null
   }, {
-    "name" : "turn-off",
-    "startState" : "ON",
-    "endState" : "OFF",
+    "name" : "close-door",
+    "startState" : "OPENED",
+    "endState" : "CLOSED",
+    "parameter" : null
+  }, {
+    "name" : "lock-door",
+    "startState" : "CLOSED",
+    "endState" : "LOCKED",
+    "parameter" : null
+  }, {
+    "name" : "unlock-door",
+    "startState" : "LOCKED",
+    "endState" : "CLOSED",
+    "parameter" : null
+  } ],
+  "currentState" : "CLOSED",
+  "stateList" : [ "OPENED", "CLOSED", "LOCKED" ],
+  "controlList" : [ {
+    "name" : "open-door",
+    "startState" : "CLOSED",
+    "endState" : "OPENED",
+    "parameter" : null
+  }, {
+    "name" : "close-door",
+    "startState" : "OPENED",
+    "endState" : "CLOSED",
+    "parameter" : null
+  }, {
+    "name" : "lock-door",
+    "startState" : "CLOSED",
+    "endState" : "LOCKED",
+    "parameter" : null
+  }, {
+    "name" : "unlock-door",
+    "startState" : "LOCKED",
+    "endState" : "CLOSED",
     "parameter" : null
   } ]
 }
