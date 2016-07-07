@@ -14,6 +14,7 @@
         <module>EmulatedSensor</module>
         <module>EmulatedActuator</module>
         <module>MQTTSubscriber</module>
+        <module>EmulatedRangeActuator</module>
     </modules>
 
 </project>
