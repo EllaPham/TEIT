@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teit.actuator.model;
+package teit.rangeactuator.model;
 
 import java.util.List;
 
@@ -11,13 +11,17 @@ import java.util.List;
  *
  * @author Trang
  */
-public class RangeState {
-    private int startRange;
-    private int endRange;
-    private int step;
-    private int currentState;
-   private List<EnumControl> controls;
-    
+public class Range {
+    public String description;
+    public int startRange;
+    public int endRange;
+    public int currentState;
+    public List<Control> controls;
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setStartRange(int startRange) {
         this.startRange = startRange;
     }
@@ -26,16 +30,17 @@ public class RangeState {
         this.endRange = endRange;
     }
 
-    public void setStep(int step) {
-        this.step = step;
-    }
-
     public void setCurrentState(int currentState) {
         this.currentState = currentState;
     }
 
-    public void setControls(List<EnumControl> controls) {
+    public void setcontrols(List<Control> controls) {
         this.controls = controls;
+    }
+    
+    
+    public String getDescription() {
+        return description;
     }
 
     public int getStartRange() {
@@ -46,15 +51,11 @@ public class RangeState {
         return endRange;
     }
 
-    public int getStep() {
-        return step;
-    }
-
     public int getCurrentState() {
         return currentState;
     }
 
-    public List<EnumControl> getControls() {
+    public List<Control> getcontrols() {
         return controls;
     }
     

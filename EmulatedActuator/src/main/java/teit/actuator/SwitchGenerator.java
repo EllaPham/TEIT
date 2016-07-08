@@ -19,7 +19,7 @@ import teit.actuator.model.EnumControl;
  *
  * @author trang
  */
-public class SamplesGenerator {
+public class SwitchGenerator {
 static private String jsonString;
     public static void main(String[] args) throws IOException {
         jsonString = generateSwitchDesciption();

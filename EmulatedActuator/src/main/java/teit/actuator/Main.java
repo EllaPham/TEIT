@@ -52,13 +52,13 @@ public class Main {
                         System.out.println("Unknown command !");
                         return;
                     }
-                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("actuator.data"), enumState);
+                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), enumState);
                     break;
                 
             }
             return;
         } else {
-            jsonString = SamplesGenerator.generateSwitchDesciption();
+            jsonString = SwitchGenerator.generateSwitchDesciption();
             ObjectMapper mapper = new ObjectMapper();
             EnumState enumState = mapper.readValue(jsonString, EnumState.class);
             stateList = getState(enumState);

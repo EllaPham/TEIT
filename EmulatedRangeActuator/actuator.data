@@ -1,0 +1,19 @@
+{
+  "description" : "Range",
+  "startRange" : 1,
+  "endRange" : 100,
+  "currentState" : 0,
+  "controls" : [ {
+    "name" : "set-default",
+    "stateValue" : 20,
+    "isSet" : true
+  }, {
+    "name" : "reduce-value",
+    "stateValue" : -1,
+    "isSet" : false
+  }, {
+    "name" : "increase-value",
+    "stateValue" : 1,
+    "isSet" : false
+  } ]
+}
