@@ -159,6 +159,19 @@ After data preparation and configuration in *sensor.conf*
 In command line, typing this command as below:
 
 		java -jar target\EmulatedSensor-1.0-SNAPSHOT.jar
+		
+#### 5.3. USING SCRIPT TO RUN SENSOR
+
+To execute operations of sensor, we can use the sensor script. The script is run in the same folder of the sensor artifacts. Some examples as below: 
+
+```sh
+$ ./sensor.sh list-commands
+start
+stop
+change-rate <rate>
+connect-console
+connect-mqtt <broker> [topic]
+```
     
 ### 6. SCOPE AND DEVELOPMENT ORIENTATION 
 
