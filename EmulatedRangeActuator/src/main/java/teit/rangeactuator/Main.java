@@ -49,8 +49,12 @@ public class Main {
                   mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
                     break;
              }
-             if (currentState > range.getEndRange()){ currentState = range.getEndRange() ;}
-             if (currentState < range.getStartRange()){ currentState = range.getStartRange();}
+             if (range.getCurrentState() > range.getEndRange()){ range.setCurrentState(range.getEndRange()) ;
+             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
+             }
+             if (range.getCurrentState() < range.getStartRange()){range.setCurrentState(range.getStartRange());
+             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
+             }
           
        }
         else {
@@ -72,14 +76,6 @@ public class Main {
         }        
         return null;
     }
-   static public Range reduce(int percision){
-       Range aRange = new Range();
-       aRange.setCurrentState(currentState - percision);
-       return aRange;
-   }
-   static public int increase (int percision){
-       currentState = currentState + percision;
-       return currentState;
-   }
+   
 }
 

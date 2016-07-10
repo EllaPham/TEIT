@@ -2,7 +2,7 @@
   "description" : "Range",
   "startRange" : 1,
   "endRange" : 100,
-  "currentState" : 17,
+  "currentState" : 16,
   "controls" : [ {
     "name" : "set-default",
     "stateValue" : 20,
