@@ -2,17 +2,17 @@
   "description" : "Range",
   "startRange" : 1,
   "endRange" : 100,
-  "currentState" : 20,
+  "currentState" : 17,
   "controls" : [ {
     "name" : "set-default",
     "stateValue" : 20,
     "isSet" : true
   }, {
-    "name" : "reduce-1",
+    "name" : "reduce",
     "stateValue" : -1,
     "isSet" : false
   }, {
-    "name" : "increase-1",
+    "name" : "increase",
     "stateValue" : 1,
     "isSet" : false
   } ]

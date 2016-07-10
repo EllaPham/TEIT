@@ -19,6 +19,7 @@ import teit.rangeactuator.model.Range;
  */
 public class Main {
     static public int currentState;
+   
    public static void main(String[] args) throws IOException{
       
         if (args.length > 0) {
@@ -31,16 +32,16 @@ public class Main {
                  case "current-state":                 
                      System.out.println(range.getCurrentState());
                     break;
-                case "reduce-1": 
-                    currentState= currentState - 1;
-                    range.setCurrentState(currentState);
+                case "reduce":                    
+                    currentState= currentState - Integer.parseInt(args[1]);
+                    range.setCurrentState(currentState);                   
                     mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
                  
                     break;
-                case "increase-1":
-                    currentState= currentState + 1;
-                    range.setCurrentState(currentState);   
-                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
+                case "increase":
+                   currentState= currentState + Integer.parseInt(args[1]);
+                   range.setCurrentState(currentState);                      
+                   mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
                     break;
                 case "set-default":
                   range = invoke(args[0], range, null);//range.getcurrentState() = 20
@@ -48,6 +49,8 @@ public class Main {
                   mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
                     break;
              }
+             if (currentState > range.getEndRange()){ currentState = range.getEndRange() ;}
+             if (currentState < range.getStartRange()){ currentState = range.getStartRange();}
           
        }
         else {
@@ -61,12 +64,22 @@ public class Main {
         for (Control aControl : controlLst) {
             if (aControl.getName().equalsIgnoreCase(actionName)) {
                
-                Arange.setCurrentState(aControl.getStateValue());              
+                Arange.setCurrentState(aControl.getStateValue());  
+               
            return Arange;
             }
 
         }        
         return null;
     }
+   static public Range reduce(int percision){
+       Range aRange = new Range();
+       aRange.setCurrentState(currentState - percision);
+       return aRange;
+   }
+   static public int increase (int percision){
+       currentState = currentState + percision;
+       return currentState;
+   }
 }
 

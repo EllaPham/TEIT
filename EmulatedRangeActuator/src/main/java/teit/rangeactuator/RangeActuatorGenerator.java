@@ -46,11 +46,11 @@ public class RangeActuatorGenerator {
         aControl1.setIsSet(true);
         aControl1.setStateValue(20);
         // Khởi tạo cho Control 2
-        aControl2.setName("reduce-1");
+        aControl2.setName("reduce");
         aControl2.setIsSet(false);
         aControl2.setStateValue(-1);
         // Khởi tạo control 2
-        aControl3.setName("increase-1");
+        aControl3.setName("increase");
         aControl3.setIsSet(false);
         aControl3.setStateValue(1);
         //LControl list add
