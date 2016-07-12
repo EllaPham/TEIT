@@ -9,7 +9,7 @@ order: 2
 
 #### 1.1.MOTIVATION
 
-Like a sensor, an actuator is a basic part of  IoT system, focus on the control part of the system. Implementing Emulated Sensor is applied in developing IoT system. 
+Like a sensor, an actuator is a basic part of  IoT system, focus on the control part of the system. Implementing Emulated Actuator is applied in developing IoT system. 
 
 #### 1.2. OVERVIEW
 
@@ -146,13 +146,13 @@ An example about  json file for door actuator  "actuator.data" as below:
 
 Range actuator is an Emulated Actuator being used in case actuator has an indefinite collection of states such as range. We only know the boundary states of range (startRange & endRange). The controls of this actuator depend on actuators in  reality. TEIT provides some identified controls  and other controls that user can update in Description file depending on their demand. Description file of Range Actuator as below:
  
-	* description : name of description file
-	* startRange: the minimum value of range 
-	* endRange: the maximum value of range
-	* currentState: current value 
-	* Controls: a set of range actuator control 
+* description : name of description file
+* startRange: the minimum value of range 
+* endRange: the maximum value of range
+* currentState: current value 
+* Controls: a set of range actuator control 
 
-		An example for description file of Range Actuator: 
+An example for description file of Range Actuator: 
 
 
 		{
@@ -219,9 +219,9 @@ We have accomplished the basic flow of Emulated Actuator based on State machine.
 
 * Enum Actuator
 
-  * * Switch Generator
+  * Switch Generator
 
-  * * Door Generator
+  * Door Generator
  
 * Range Actuator
 
