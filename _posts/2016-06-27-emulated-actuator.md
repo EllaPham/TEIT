@@ -69,7 +69,7 @@ Emulated Actuator has done 3 generator classes corresponding to 2 types of actua
 
 #### 3.1. ENUM ACTUATOR
 
-Enum Actuator is an Emulated Actuator being used in case  actuator has a definite collection of states (e.g. Switch Actutor State = {ON, OFF}), and a set of controls that cover all of cases that could be happened of state machine (e.g. Switch actuator controls = {turn-on, turn-off} 
+Enum Actuator is an Emulated Actuator being used in case  actuator has a definite collection of states (e.g. Switch Actuator State = {ON, OFF}), and a set of controls that cover all of cases that could be happened of state machine (e.g. Switch actuator controls = {turn-on, turn-off} 
 TEIT Enum Actuator enables user to define a set of state and control actions, then provide API to manage these state and to invoke the control actions.
 
 The input of Enum Actuator is a JSON description to define the states and the controls. Next part will illustrate two common actuators: Switch and Automatic Door
@@ -144,7 +144,7 @@ An example about  json file for door actuator  "actuator.data" as below:
 	
 #### 3.2. RANGE ACTUATOR
 
-Range actuator is an Emulated Actuator being used in case actuator has an indefinite collection of states such as range. We only know the boundary states of range (startRange & endRange). The controls of this actuator depend on actuators in  reality. TEIT provides some identified controls  and other controls that user can update in Description file depending on their demand. Description file of Range Actuator as below:
+Range actuator is an Emulated Actuator being used in case actuator has an indefinite collection of states such as range. We only know the boundary states of range (startRange & endRange). The controls of this actuator depend on actuators in  reality. TEIT provides some predefined controls  and custom controls that user can define the description file depending on their demand. Description file of Range Actuator as below:
  
 * **description**: name of description file
 
@@ -156,36 +156,40 @@ Range actuator is an Emulated Actuator being used in case actuator has an indefi
 
 * **Controls**: a set of range actuator control 
 
-An example for description file of Range Actuator: 
+An example for description file of Air Conditioning:
 
 
+		
 		{
 		  "description" : "Range",
-		  "startRange" : 1,
-		  "endRange" : 100,
+		  "startRange" : 16,
+		  "endRange" : 50,
 		  "currentState" : 16,
 		  "controls" : [ {
 			"name" : "set-default",
-			"stateValue" : 50,
+			"stateValue" : 20,
 			"isSet" : true
 		  }, {
 			"name" : "set-high",
-			"stateValue" : 80,
+			"stateValue" : 40,
 			"isSet" : true
 		  }, {
 			"name" : "set-low",
-			"stateValue" : 10,
+			"stateValue" : 17,
 			"isSet" : true
 		  }, {
-			"name" : "tomtom",
-			"stateValue" : 5,
+			"name" : "increase-1",
+			"stateValue" : 1,
 			"isSet" : false
 		  }, {
-			"name" : "bitter",
+			"name" : "decrease-1",
 			"stateValue" : -1,
 			"isSet" : false
 		  } ]
 		}
+
+
+
 
 
 
