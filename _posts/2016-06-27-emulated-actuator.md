@@ -37,7 +37,13 @@ Emulated Actuator is designed based on the operation principles of real actuator
 
 #### 2.2. DATA MODEL
 
-![Data Model](../images/ActuatorDataModel.png "The data model of actuator")
+* Enum Actuator
+
+![Enum Data Model](../images/ActuatorDataModel.png "The data model of an enum actuator")
+
+* Range Actuator
+
+![Range Data Model](../images/RangeActuatorDataModel.png "The data model of a range actuator")
 
 ### 3. DESCRIPTION FILE
 
@@ -61,7 +67,15 @@ Json file is generated from Generator classes. Depending on each actuator of use
 
 Emulated Actuator has done 3 generator classes corresponding to 2 types of actuator. We will show as below
 
-#### 3.1. SWITCH ACTUATOR 
+#### 3.1. ENUM ACTUATOR
+
+Enum Actuator is an Emulated Actuator being used in case  actuator has a definite collection of states (e.g. Switch Actutor State = {ON, OFF}), and a set of controls that cover all of cases that could be happened of state machine (e.g. Switch actuator controls = {turn-on, turn-off} 
+TEIT Enum Actuator enables user to define a set of state and control actions, then provide API to manage these state and to invoke the control actions.
+
+The input of Enum Actuator is a JSON description to define the states and the controls. Next part will illustrate two common actuators: Switch and Automatic Door
+
+
+##### SWITCH ACTUATOR 
 
 * **Including 2 states:**   ON/OFF
 
@@ -90,7 +104,7 @@ An example about  json file for switch actuator  "actuator.data" as below:
       "currentState" : null    
     }
 
-#### 3.2.DOOR ACTUATOR 
+##### DOOR ACTUATOR 
 
 * **Including 3 states:**  OPENED/ CLOSED/ LOCKED
 
@@ -127,6 +141,50 @@ An example about  json file for door actuator  "actuator.data" as below:
       } ],
       "currentState" : "LOCKED"          
     }
+	
+#### 3.2. RANGE ACTUATOR
+
+Range actuator is an Emulated Actuator being used in case actuator has an indefinite collection of states such as range. We only know the boundary states of range (startRange & endRange). The controls of this actuator depend on actuators in  reality. TEIT provides some identified controls  and other controls that user can update in Description file depending on their demand. Description file of Range Actuator as below:
+ 
+	* description : name of description file
+	* startRange: the minimum value of range 
+	* endRange: the maximum value of range
+	* currentState: current value 
+	* Controls: a set of range actuator control 
+
+		An example for description file of Range Actuator: 
+
+
+		{
+		  "description" : "Range",
+		  "startRange" : 1,
+		  "endRange" : 100,
+		  "currentState" : 16,
+		  "controls" : [ {
+			"name" : "set-default",
+			"stateValue" : 50,
+			"isSet" : true
+		  }, {
+			"name" : "set-high",
+			"stateValue" : 80,
+			"isSet" : true
+		  }, {
+			"name" : "set-low",
+			"stateValue" : 10,
+			"isSet" : true
+		  }, {
+			"name" : "tomtom",
+			"stateValue" : 5,
+			"isSet" : false
+		  }, {
+			"name" : "bitter",
+			"stateValue" : -1,
+			"isSet" : false
+		  } ]
+		}
+
+
+
 
 ### 4. USAGE
 
@@ -159,10 +217,14 @@ The following picture are the result when running “EmumActuator.jar”
 
 We have accomplished the basic flow of Emulated Actuator based on State machine. This Emulated Actuator is run by command line. Emulated Actuator provides user Generators in order to generate description file in Json format. Generators have implemented: 
 
-* Switch Generator
+* Enum Actuator
 
-* Door Generator
+  * * Switch Generator
 
-In future, we are implementing other Generators following user’s requirement and Range Generator
+  * * Door Generator
+ 
+* Range Actuator
+
+In future, we are implementing other Generators following user’s requirement.
 
 
