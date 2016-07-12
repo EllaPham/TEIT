@@ -146,11 +146,15 @@ An example about  json file for door actuator  "actuator.data" as below:
 
 Range actuator is an Emulated Actuator being used in case actuator has an indefinite collection of states such as range. We only know the boundary states of range (startRange & endRange). The controls of this actuator depend on actuators in  reality. TEIT provides some identified controls  and other controls that user can update in Description file depending on their demand. Description file of Range Actuator as below:
  
-* description : name of description file
-* startRange: the minimum value of range 
-* endRange: the maximum value of range
-* currentState: current value 
-* Controls: a set of range actuator control 
+* *description*: name of description file
+
+* *startRange*: the minimum value of range 
+
+* *endRange*: the maximum value of range
+
+* *currentState*: current value 
+
+* *Controls*: a set of range actuator control 
 
 An example for description file of Range Actuator: 
 
@@ -217,13 +221,13 @@ The following picture are the result when running “EmumActuator.jar”
 
 We have accomplished the basic flow of Emulated Actuator based on State machine. This Emulated Actuator is run by command line. Emulated Actuator provides user Generators in order to generate description file in Json format. Generators have implemented: 
 
-* Enum Actuator
+* *Enum Actuator*
 
   * Switch Generator
 
   * Door Generator
  
-* Range Actuator
+* *Range Actuator*
 
 In future, we are implementing other Generators following user’s requirement.
 
