@@ -17,6 +17,15 @@ public class Range {
     public int endRange;
     public int currentState;
     public List<Control> controls;
+    
+    public Control getControlByName(String aName){
+        for (Control c: controls){
+            if (c.getName().equalsIgnoreCase(aName)){
+                return c;
+            }          
+        }
+        return null;
+    }
 
     public void setDescription(String description) {
         this.description = description;

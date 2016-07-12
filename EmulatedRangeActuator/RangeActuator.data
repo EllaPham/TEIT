@@ -5,15 +5,23 @@
   "currentState" : 16,
   "controls" : [ {
     "name" : "set-default",
-    "stateValue" : 20,
+    "stateValue" : 50,
     "isSet" : true
   }, {
-    "name" : "reduce",
-    "stateValue" : -1,
+    "name" : "set-high",
+    "stateValue" : 80,
+    "isSet" : true
+  }, {
+    "name" : "set-low",
+    "stateValue" : 10,
+    "isSet" : true
+  }, {
+    "name" : "tomtom",
+    "stateValue" : 5,
     "isSet" : false
   }, {
-    "name" : "increase",
-    "stateValue" : 1,
+    "name" : "bitter",
+    "stateValue" : -1,
     "isSet" : false
   } ]
 }

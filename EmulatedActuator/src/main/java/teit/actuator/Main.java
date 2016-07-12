@@ -46,7 +46,7 @@ public class Main {
                     actionList = getActionList(enumState.getControls());
                     System.out.println(actionList);
                     break;
-              default:
+              default: // day nay. Ngoai 3 lenh mac dinh o tren. Doan default nay lay ra action name
                     enumState = invoke(args[0], enumState, null);
                     if (enumState==null){
                         System.out.println("Unknown command !");

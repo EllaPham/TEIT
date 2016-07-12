@@ -8,8 +8,8 @@ package teit.rangeactuator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import teit.rangeactuator.model.Control;
 import teit.rangeactuator.model.Range;
 
@@ -18,64 +18,57 @@ import teit.rangeactuator.model.Range;
  * @author Trang
  */
 public class Main {
-    static public int currentState;
-   
-   public static void main(String[] args) throws IOException{
-      
+
+    public static void main(String[] args) {
+
         if (args.length > 0) {
-            
+
             Range range;
             ObjectMapper mapper = new ObjectMapper();
-            range = mapper.readValue(new File("RangeActuator.data"), Range.class);
-               currentState = range.getCurrentState();//current-state = 16
-             switch (args[0]) {
-                 case "current-state":                 
-                     System.out.println(range.getCurrentState());
-                    break;
-                case "reduce":                    
-                    currentState= currentState - Integer.parseInt(args[1]);
-                    range.setCurrentState(currentState);                   
-                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
-                 
-                    break;
-                case "increase":
-                   currentState= currentState + Integer.parseInt(args[1]);
-                   range.setCurrentState(currentState);                      
-                   mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
-                    break;
-                case "set-default":
-                  range = invoke(args[0], range, null);//range.getcurrentState() = 20
-                  currentState = range.getCurrentState();                                                      
-                  mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
-                    break;
-             }
-             if (range.getCurrentState() > range.getEndRange()){ range.setCurrentState(range.getEndRange()) ;
-             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
-             }
-             if (range.getCurrentState() < range.getStartRange()){range.setCurrentState(range.getStartRange());
-             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
-             }
-          
-       }
-        else {
-       }
-   }
-   public static Range invoke(String actionName, Range Arange, String[] parameter) {
-     
-        List<Control> controlLst = new ArrayList<>();
-        Control acontrol = new Control();
-        controlLst = Arange.getcontrols();
-        for (Control aControl : controlLst) {
-            if (aControl.getName().equalsIgnoreCase(actionName)) {
-               
-                Arange.setCurrentState(aControl.getStateValue());  
-               
-           return Arange;
+            try {
+                range = mapper.readValue(new File("RangeActuator.data"), Range.class);
+
+                switch (args[0]) {
+                    case "current-state":
+                        System.out.println(range.getCurrentState());
+                        return;
+                    default:
+                        range = invoke(args[0], range, null);
+                        if (range == null) {
+                            System.out.println("Unknown command !");
+                            return;
+                        }
+                }
+                if (range.getCurrentState() > range.getEndRange()) {
+                    range.setCurrentState(range.getEndRange());
+                }
+                if (range.getCurrentState() < range.getStartRange()) {
+                    range.setCurrentState(range.getStartRange());
+                }
+
+                mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), range);
+
+            } catch (IOException ex) {
+                System.out.println("Cannot load RangeActuator.data. Please check !");
+                ex.printStackTrace();
             }
 
-        }        
+        } else {
+        }
+
+    }
+
+    public static Range invoke(String actionName, Range Arange, String[] parameter) {
+        Control acontrol = Arange.getControlByName(actionName);
+        if (acontrol != null) {
+            if (acontrol.isIsSet()) {
+                Arange.setCurrentState(acontrol.getStateValue());
+            } else {
+                Arange.setCurrentState(Arange.getCurrentState() + acontrol.getStateValue()); // cho nay curentState trung voi ARange curentstate
+            }
+
+            return Arange;
+        }
         return null;
     }
-   
 }
-

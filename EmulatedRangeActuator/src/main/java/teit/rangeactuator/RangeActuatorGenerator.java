@@ -31,6 +31,8 @@ public class RangeActuatorGenerator {
         Control aControl1 = new Control();
         Control aControl2 = new Control();
         Control aControl3 = new Control();
+        Control aControl4 = new Control();
+        Control aControl5 = new Control();
         
         List<Control> LControl = new ArrayList<>();
         
@@ -44,19 +46,29 @@ public class RangeActuatorGenerator {
         //Khoi tao cho Control 1
         aControl1.setName("set-default");
         aControl1.setIsSet(true);
-        aControl1.setStateValue(20);
+        aControl1.setStateValue(50);
         // Khởi tạo cho Control 2
-        aControl2.setName("reduce");
-        aControl2.setIsSet(false);
-        aControl2.setStateValue(-1);
-        // Khởi tạo control 2
-        aControl3.setName("increase");
-        aControl3.setIsSet(false);
-        aControl3.setStateValue(1);
+        aControl2.setName("set-high");
+        aControl2.setIsSet(true);
+        aControl2.setStateValue(80);
+        // Khởi tạo control 3
+        aControl3.setName("set-low");
+        aControl3.setIsSet(true);
+        aControl3.setStateValue(10);
+        //Khoi tao control 4l
+        aControl4.setName("tomtom");
+        aControl4.setIsSet(false);
+        aControl4.setStateValue(5);
+        //Khoi tao control 5
+        aControl5.setName("bitter");
+        aControl5.setIsSet(false);
+        aControl5.setStateValue(-1);
         //LControl list add
         LControl.add(aControl1);
         LControl.add(aControl2);
         LControl.add(aControl3);
+        LControl.add(aControl4);
+        LControl.add(aControl5);
         aRange.setcontrols(LControl);
         
         ObjectMapper mapper = new ObjectMapper();     
