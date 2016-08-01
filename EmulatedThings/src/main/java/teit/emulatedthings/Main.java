@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import static teit.actuator.Main.getState;
 import teit.actuator.model.EnumState;
 import teit.rangeactuator.model.Range;
 
@@ -65,12 +64,12 @@ public class Main {
                          break;
                      default:
                         String stateX = enumMap.get(key).invoke(actionName, null);
-                         System.out.println("STATE X: " + stateX);
+                        System.out.println("STATE X: " + stateX);
                         if (stateX == null) {
                             System.out.println("Unknown command of actuator " + key );
                         }
                         mapperOnOff.writerWithDefaultPrettyPrinter().writeValue(new File("OnOff.data.json"), enumMap.get(key));
-                         break;
+                        break;
                    
                  }
                 
@@ -98,7 +97,7 @@ public class Main {
              }
          }
          if(count==0){
-             System.out.println("Not found actuator!");
+             System.out.println("Not found actuator:" + actuatorName);
          }  
          
           

@@ -12,7 +12,7 @@
     "endState" : "OFF",
     "parameter" : null
   } ],
-  "currentState" : "ON",
+  "currentState" : "OFF",
   "stateList" : [ "ON", "OFF" ],
   "controlList" : [ {
     "name" : "turn-on",

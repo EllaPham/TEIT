@@ -65,11 +65,12 @@ public class EnumState {
             if (aControl.getName().equalsIgnoreCase(actionName)) {
                
                 this.currentState = aControl.getEndState();
-               // System.out.println("INVOKE CURRENT STATE=== " + currentState);
+                System.out.println("INVOKE CURRENT STATE=== " + currentState);
                return currentState; 
                
             }
-        }        
+        }    
+         System.out.println("Return null wrong action");
         return null;
     }
 
