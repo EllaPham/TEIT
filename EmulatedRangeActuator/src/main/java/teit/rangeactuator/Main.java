@@ -8,9 +8,6 @@ package teit.rangeactuator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import teit.rangeactuator.model.Control;
 import teit.rangeactuator.model.Range;
 
 /**
@@ -33,8 +30,8 @@ public class Main {
                         System.out.println(range.getCurrentState());
                         return;
                     default:
-                        range = invoke(args[0], range, null);
-                        if (range == null) {
+                        range.invoke(args[0],range, null);
+                        if (range.getControlByName(args[0]) == null) {
                             System.out.println("Unknown command !");
                             return;
                         }
@@ -55,20 +52,5 @@ public class Main {
 
         } else {
         }
-
-    }
-
-    public static Range invoke(String actionName, Range Arange, String[] parameter) {
-        Control acontrol = Arange.getControlByName(actionName);
-        if (acontrol != null) {
-            if (acontrol.isIsSet()) {
-                Arange.setCurrentState(acontrol.getStateValue());
-            } else {
-                Arange.setCurrentState(Arange.getCurrentState() + acontrol.getStateValue()); // cho nay curentState trung voi ARange curentstate
-            }
-
-            return Arange;
-        }
-        return null;
     }
 }

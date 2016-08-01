@@ -1,0 +1,28 @@
+{
+  "name" : "onoff",
+  "states" : [ "ON", "OFF" ],
+  "controls" : [ {
+    "name" : "turn-on",
+    "startState" : "OFF",
+    "endState" : "ON",
+    "parameter" : null
+  }, {
+    "name" : "turn-off",
+    "startState" : "ON",
+    "endState" : "OFF",
+    "parameter" : null
+  } ],
+  "currentState" : null,
+  "stateList" : [ "ON", "OFF" ],
+  "controlList" : [ {
+    "name" : "turn-on",
+    "startState" : "OFF",
+    "endState" : "ON",
+    "parameter" : null
+  }, {
+    "name" : "turn-off",
+    "startState" : "ON",
+    "endState" : "OFF",
+    "parameter" : null
+  } ]
+}

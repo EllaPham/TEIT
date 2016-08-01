@@ -1,11 +1,11 @@
 {
-  "description" : "level",
-  "startRange" : 2700,
-  "endRange" : 5500,
-  "currentState" : 3000,
+  "name" : "level",
+  "startRange" : 1,
+  "endRange" : 100,
+  "currentState" : 16,
   "controls" : [ {
     "name" : "set-targetValue-default",
-    "stateValue" : 3400,
+    "stateValue" : 45,
     "isSet" : true
   }, {
     "name" : "set-transition-time",

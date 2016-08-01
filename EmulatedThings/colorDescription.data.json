@@ -1,10 +1,10 @@
 {
-  "description" : "level",
+  "name" : "color",
   "startRange" : 2700,
   "endRange" : 5500,
   "currentState" : 3000,
   "controls" : [ {
-    "name" : "set-targetValue-default",
+    "name" : "set-default",
     "stateValue" : 3400,
     "isSet" : true
   }, {

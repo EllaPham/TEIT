@@ -19,56 +19,52 @@ import teit.rangeactuator.model.Range;
  *
  * @author Trang
  */
-public class RangeActuatorGenerator {
-    static private String jsonString;
+public class ColorTemperatureGenerator {
+      static private String jsonString;
     public static void main(String[] args) throws IOException {
-        jsonString = generateRangeDesciption();
+        jsonString = generateColorDesciption();
         writeToFile(jsonString); 
 }
-
-    private static String generateRangeDesciption() throws JsonProcessingException {
+      public static String generateColorDesciption() throws JsonProcessingException {
         Range aRange = new Range();
         Control aControl1 = new Control();
         Control aControl2 = new Control();
         Control aControl3 = new Control();
         Control aControl4 = new Control();
-        Control aControl5 = new Control();
+        
         
         List<Control> LControl = new ArrayList<>();
         
        
         //Khoi tao cho State      
-        aRange.setName("Range");
-        aRange.setStartRange(1);
-        aRange.setEndRange(100);
-        aRange.setCurrentState(16);
+        aRange.setName("color");
+        aRange.setStartRange(2700);
+        aRange.setEndRange(5500);
+        aRange.setCurrentState(3000);
         
         //Khoi tao cho Control 1
         aControl1.setName("set-default");
         aControl1.setIsSet(true);
-        aControl1.setStateValue(50);
+        aControl1.setStateValue(3400);
         // Khởi tạo cho Control 2
-        aControl2.setName("set-high");
+        aControl2.setName("set-transition-time");
         aControl2.setIsSet(true);
-        aControl2.setStateValue(80);
+        aControl2.setStateValue(10);
         // Khởi tạo control 3
-        aControl3.setName("set-low");
+        aControl3.setName("set-stepsize");
         aControl3.setIsSet(true);
-        aControl3.setStateValue(10);
+        aControl3.setStateValue(45);
         //Khoi tao control 4l
-        aControl4.setName("tomtom");
+        aControl4.setName("set-rate");
         aControl4.setIsSet(false);
-        aControl4.setStateValue(5);
-        //Khoi tao control 5
-        aControl5.setName("bitter");
-        aControl5.setIsSet(false);
-        aControl5.setStateValue(-1);
+        aControl4.setStateValue(20);
+
         //LControl list add
         LControl.add(aControl1);
         LControl.add(aControl2);
         LControl.add(aControl3);
         LControl.add(aControl4);
-        LControl.add(aControl5);
+        //LControl.add(aControl5);
         aRange.setcontrols(LControl);
         
         ObjectMapper mapper = new ObjectMapper();     
@@ -77,7 +73,7 @@ public class RangeActuatorGenerator {
         return json;
     }
     static public void writeToFile(String jsonStr) throws IOException{
-        File file = new File("c:/RangeDescription.json");
+        File file = new File("c:/colorDescription.json");
 		
 
 		try (FileOutputStream fop = new FileOutputStream(file)) {
@@ -101,3 +97,6 @@ public class RangeActuatorGenerator {
 		}
 	}
 }
+
+
+

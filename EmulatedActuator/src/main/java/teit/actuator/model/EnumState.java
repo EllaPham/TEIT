@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class EnumState {
 
-    private String description;
+    private String name;
     private List<String> states;
     private List<EnumControl> controls;
     private String currentState;
@@ -36,12 +36,12 @@ public class EnumState {
     
     
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
     public void setStateList(List<String> stateList) {
@@ -58,6 +58,19 @@ public class EnumState {
 
     public void setControlList(List<EnumControl> controlList) {
         this.controls = controlList;
+    }
+     public String invoke(String actionName,String[] parameter) {
+     
+        for (EnumControl aControl : controls) {
+            if (aControl.getName().equalsIgnoreCase(actionName)) {
+               
+                this.currentState = aControl.getEndState();
+               // System.out.println("INVOKE CURRENT STATE=== " + currentState);
+               return currentState; 
+               
+            }
+        }        
+        return null;
     }
 
 }

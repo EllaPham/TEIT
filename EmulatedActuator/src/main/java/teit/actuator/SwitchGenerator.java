@@ -40,7 +40,7 @@ static private String jsonString;
         lState.add("OFF");
        
         //Khoi tao cho State      
-        aState.setDescription("Switch");
+        aState.setName("Switch");
         aState.setStateList(lState);
         //Khoi tao cho Control 1
         aControl.setName("turn-on");

@@ -42,7 +42,7 @@ public class SmartDoorGenerator {
         lState2.add("CLOSED");
         lState2.add("LOCKED");
         //Khoi tao cho State      
-        aState2.setDescription("door_control");
+        aState2.setName("door_control");
         aState2.setStateList(lState2);
         //aState.setCurrentState("");
         

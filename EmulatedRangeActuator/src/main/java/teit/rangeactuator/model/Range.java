@@ -12,7 +12,7 @@ import java.util.List;
  * @author Trang
  */
 public class Range {
-    public String description;
+    public String name;
     public int startRange;
     public int endRange;
     public int currentState;
@@ -27,8 +27,8 @@ public class Range {
         return null;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setStartRange(int startRange) {
@@ -48,8 +48,8 @@ public class Range {
     }
     
     
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
     public int getStartRange() {
@@ -66,6 +66,19 @@ public class Range {
 
     public List<Control> getcontrols() {
         return controls;
+    }
+     public int invoke(String actionName, Range Arange, String[] parameter) {
+        Control acontrol = Arange.getControlByName(actionName);
+        if (acontrol != null) {
+            if (acontrol.isIsSet()) {
+                currentState = acontrol.getStateValue();
+            } else {
+                currentState = Arange.getCurrentState() + acontrol.getStateValue(); // cho nay curentState trung voi ARange curentstate
+            }
+
+          return currentState;
+        }
+        return 0;
     }
     
     

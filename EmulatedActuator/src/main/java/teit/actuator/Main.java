@@ -39,23 +39,24 @@ public class Main {
                     System.out.println(getState(enumState));
                     break;
                 case "current-state":
-                    currentState = enumState.getCurrentState();
-                    System.out.println(currentState);
+                   
+                    System.out.println(enumState.getCurrentState());
                     break;
                 case "action-list":
-                    actionList = getActionList(enumState.getControls());
-                    System.out.println(actionList);
+                    
+                    System.out.println(getActionList(enumState.getControls()));
                     break;
               default: // day nay. Ngoai 3 lenh mac dinh o tren. Doan default nay lay ra action name
-                    enumState = invoke(args[0], enumState, null);
-                    if (enumState==null){
+                   
+                    if (enumState.getCurrentState()==null){
                         System.out.println("Unknown command !");
                         return;
                     }
-                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("RangeActuator.data"), enumState);
+                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File("actuator.data"), enumState);
                     break;
                 
             }
+            
             return;
         } else {
             jsonString = SwitchGenerator.generateSwitchDesciption();
@@ -96,19 +97,4 @@ public class Main {
         }
         return actions;
     }
-
-    public static EnumState invoke(String actionName, EnumState eState, String[] parameter) {
-        List<EnumControl> controlLst = new ArrayList<>();
-        EnumControl control = new EnumControl();
-        controlLst = eState.getControlList();
-        for (EnumControl aControl : controlLst) {
-            if (aControl.getName().equalsIgnoreCase(actionName)) {
-                eState.setCurrentState(aControl.getEndState());
-            return eState;
-            }
-
-        }        
-        return null;
-    }
-
 }
