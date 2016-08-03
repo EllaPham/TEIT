@@ -28,7 +28,6 @@ Implementing some common “Emulated Things” (e.g. Smartlight…)
 ![EmulatedThings Process](../images/EmulatedThingProcess.png "The process of emulated thing")
 
 * **Description files:** including descriptions for the actuators of the emulated thing. In each description file, there have states and a set of control actions. Description file can be in a variety of formats (e.g. json, xml, csv,...). For the sake of compatibility with previous actuator project, we use JSON format.
-
 All the description files will be put into a single folder. At start, the emulated thing will scan and load these file into the model.
 
 * **Emulated thing:** including a set of generic sensors and actuators loading from the description files.
