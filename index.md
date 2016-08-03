@@ -31,7 +31,10 @@ We aim to develop an Emulation system, which is different with a Simulation syst
 TEIT project towards to providing basic components to build an emulation testbed to support the development process of the system mentioned above. This project includes multiple small tools as below:
 
 * **Emulated Sensor:** enables developers to emulate real sensors that sense the environment and provide sensing data. The data can come from different emulated sources (such as log file in CSV format). Emulated sensors is highly configurable to read from different inputs and write to various outputs.	
+
 * **Emulated Actuator:** enables developers to emulate real actuators that control and manage states. Emulated Actuator exposes easy-to-use and dynamic APIs.
+
+* **Emulated Things:** enables developers to emulate complex devices by composing many sensors and actuators. Emulated thing provides an easy way to generate IoT devices and unified APIs for the device management.
 
 * **Emulated Gateway:** Providing environment in order to pack and deploy IoT services, expected to deploy on Docker (e.g. User has service: “If light is turned on over 5 minutes”, and needing to deploy on this gateway. Gateway plays a role as data aggregator with MQTT on it.
 
