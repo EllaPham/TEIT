@@ -12,7 +12,7 @@ import teit.emulatedenvironment.Model.GenCondition;
  *
  * @author Trang
  */
-public class Interval implements GenCondition{
+public class interval implements GenCondition{
 public Long delay;
 public Long lastValue = 0L;
     @Override
@@ -25,7 +25,7 @@ public Long lastValue = 0L;
        return false;
     }
 
-    public Interval(Long delay) {
+    public interval(Long delay) {
         this.delay = delay;
     }
     

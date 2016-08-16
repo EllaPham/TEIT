@@ -24,10 +24,16 @@ public class RuleProcessor {
             this.rules.add(r);
         }
     }
+    
+    public RuleProcessor(List<GenRule> rules) {
+        for (GenRule r : rules) {
+            this.rules.add(r);
+        }
+    }
 
+   
     public Double getValue() {
-
-        List<GenFunction> list =  new ArrayList<>();
+         List<GenFunction> list =  new ArrayList<>();
         for (GenRule i : rules) {
             if (i.getCondition().check()) {
                 
@@ -43,6 +49,6 @@ public class RuleProcessor {
             return f.getValue();
         }
         return null;
+        
     }
-
 }
