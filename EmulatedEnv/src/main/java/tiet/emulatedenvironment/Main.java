@@ -5,6 +5,7 @@
  */
 package tiet.emulatedenvironment;
 
+import teit.emulatedenvironment.Model.GenRuleFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

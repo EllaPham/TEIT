@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teit.emulatedenvironment.sensors;
+package teit.emulatedenvironment.Condition;
 
 /**
  *
  * @author Trang
  */
-public class TempOutside {
+public class CronTime {
     
 }
