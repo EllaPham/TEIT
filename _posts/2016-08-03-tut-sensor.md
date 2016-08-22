@@ -80,7 +80,7 @@ For example:
 		
 Open your stream using public key as step 2 in sparkfun to check the running result: 
 
-![sparkfun](../images/sparkfunSensor.png "Sending to sparkfun"){:width="600px"}.
+![sparkfun](../images/sparkfunSensor.png "Sending to sparkfun"){:width="800px"}.
 
 ### 3.Emulated Sensor send Data to thingspeak platform:
 
@@ -126,7 +126,7 @@ For example:
     
 The result after running Emulated Sensor: 
 
-![thingspeak](../images/thingspeakSensor.png "Sending to thingspeak" =200x100)
+![thingspeak](../images/thingspeakSensor.png "Sending to thingspeak"){:width="800px"}.
 
 ### 4.Emulated Sensor send Data to MQTT 
 
@@ -138,7 +138,7 @@ The result after running Emulated Sensor:
     
 After running above command, the result as below:
 
-![MQTT](../images/mqttSensor.png "Sending to MQTT")
+![MQTT](../images/mqttSensor.png "Sending to MQTT"){:width="800px"}.
 
 
 
