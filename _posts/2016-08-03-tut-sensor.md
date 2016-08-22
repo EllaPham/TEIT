@@ -24,7 +24,7 @@ order: 1
 
 ### 2.Emulated Sensor send Data to sparkfun platform:
 
-**Step 1:** Download TEIT from github (link) 
+**Step 1:** Download TEIT from [github](https://github.com/EllaPham/TEIT)
 
 **Step 2:** Open link: https://data.sparkfun.com
 
@@ -80,11 +80,11 @@ For example:
 		
 Open your stream using public key as step 2 in sparkfun to check the running result: 
 
-![sparkfun](../images/sparkfunSensor.png "Sending to sparkfun"){:width="800px"}.
+![sparkfun](../images/sparkfunSensor.png "Sending to sparkfun"){:width="700px"}.
 
 ### 3.Emulated Sensor send Data to thingspeak platform:
 
-**Step 1:** Download TEIT  from github (link) 
+**Step 1:** Download TEIT  from [github](https://github.com/EllaPham/TEIT)
 
 **Step 2:** Login in this platform: https://thingspeak.com 
 
@@ -126,11 +126,11 @@ For example:
     
 The result after running Emulated Sensor: 
 
-![thingspeak](../images/thingspeakSensor.png "Sending to thingspeak"){:width="800px"}.
+![thingspeak](../images/thingspeakSensor.png "Sending to thingspeak"){:width="700px"}.
 
 ### 4.Emulated Sensor send Data to MQTT 
 
-**Step1:** Download TEIT  from github (link) 
+**Step1:** Download TEIT  from [github](https://github.com/EllaPham/TEIT)
 
 **Step 2:** From command line screen, typing this command
 
@@ -138,7 +138,7 @@ The result after running Emulated Sensor:
     
 After running above command, the result as below:
 
-![MQTT](../images/mqttSensor.png "Sending to MQTT"){:width="800px"}.
+![MQTT](../images/mqttSensor.png "Sending to MQTT"){:width="600px"}.
 
 
 
