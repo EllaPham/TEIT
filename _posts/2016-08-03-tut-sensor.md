@@ -80,7 +80,7 @@ For example:
 		
 Open your stream using public key as step 2 in sparkfun to check the running result: 
 
-![sparkfun](../images/sparkfunSensor.png "Sending to sparkfun" =200x100)
+![sparkfun](../images/sparkfunSensor.png "Sending to sparkfun" =300x)
 
 ### 3.Emulated Sensor send Data to thingspeak platform:
 
