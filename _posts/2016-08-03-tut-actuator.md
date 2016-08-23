@@ -96,7 +96,7 @@ For example: **[Command]** as below:
 
 The following picture are the result when running **“EmumActuator.jar”**
 
-![Switch Actuator](../images/switchActutorCMD.png "Run switch  actuator"){:width="600px"}.
+![Switch Actuator](../images/switchActutorCMD.png "Run switch  actuator"){:width="700px"}.
 
 ### 4. Run Range Actuator
 
@@ -132,7 +132,7 @@ For example:
     
 The following picture are the result when running **“EmulatedRangeActuator.jar”**
 
-![Range Actuator](../images/rangeActuatorCMD.png "run range actuator"){:width="600px"}.
+![Range Actuator](../images/rangeActuatorCMD.png "run range actuator"){:width="700px"}.
 
 
 
