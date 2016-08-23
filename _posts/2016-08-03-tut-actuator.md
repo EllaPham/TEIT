@@ -80,6 +80,7 @@ For example: **[Command]** as below:
 
 * **turn-on:** changing state from “OFF” to “ON”
 
+
     java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar state-list
     
     java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
