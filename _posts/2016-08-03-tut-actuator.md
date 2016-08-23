@@ -81,19 +81,19 @@ For example: **[Command]** as below:
 * **turn-on:** changing state from “OFF” to “ON”
 
 
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar state-list
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar state-list
     
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
     
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar action-list
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar action-list
     
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar turn-on
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar turn-on
     
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
     
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar turn-off
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar turn-off
     
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar current-state
 
 The following picture are the result when running **“EmumActuator.jar”**
 
