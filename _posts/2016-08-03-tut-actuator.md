@@ -64,7 +64,7 @@ Create the description file for Actuator with name **“actuator.data”** in .j
 
 After preparing data, run Switch Actuator by command line:
 
-    java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar [command]
+		java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar [command]
    
 For example: **[Command]** as below:
 
@@ -103,33 +103,33 @@ The following picture are the result when running **“EmumActuator.jar”**
 
 After preparing data, run Switch Actuator by command line:
 
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar [command]
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar [command]
     
 For example: 
 
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar set-default
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar set-high
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state   
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar set-low
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar increase-1
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar decrease-1
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
-    
-    java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-sdfasdf
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar set-default
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar set-high
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state   
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar set-low
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar increase-1
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar decrease-1
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-state
+		
+		java -jar target\EmulatedRangeActuator-1.0-SNAPSHOT.jar current-sdfasdf
     
 The following picture are the result when running **“EmulatedRangeActuator.jar”**
 
