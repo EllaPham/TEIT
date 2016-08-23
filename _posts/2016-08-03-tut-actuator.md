@@ -68,17 +68,17 @@ After preparing data, run Switch Actuator by command line:
    
 For example: **[Command]** as below:
 
-**state-list:** showing a collection of state values
+* **state-list:** showing a collection of state values
 
-**current-state:** showing the state value at the current time
+* **current-state:** showing the state value at the current time
 
-**action-list:** showing a set of control actions
+* **action-list:** showing a set of control actions
 
-**action-name:** executing actions. ex:
+* **action-name:** executing actions. ex:
 
-**turn-off:** changing state from “ON” to “OFF”
+* **turn-off:** changing state from “ON” to “OFF”
 
-**turn-on:** changing state from “OFF” to “ON”
+* **turn-on:** changing state from “OFF” to “ON”
 
     java -jar target\EmulatedActuator-1.0-SNAPSHOT.jar state-list
     
