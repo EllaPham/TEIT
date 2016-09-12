@@ -30,7 +30,7 @@ public class CSVDataAdaptor implements InputAdaptor {
     @Override
     public boolean init(Properties prop) {
         csvFileName = (String) prop.get("data.csv.fileName");
-        String addSensorID=(String) prop.get("data.csv.addSensorID");
+        String addSensorID=(String) prop.get("sensorID").toString().trim();
         if (addSensorID.trim().equals("true")){
             sensorID = csvFileName.substring(0,csvFileName.lastIndexOf("."));
         }

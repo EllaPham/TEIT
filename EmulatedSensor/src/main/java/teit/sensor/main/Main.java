@@ -50,6 +50,7 @@ public class Main {
     static public InputAdaptor inputAdaptor;
     static public OutputAdaptor outputAdaptor;
     static public String sensorid;
+    static public String sensorType;
     static final String CONFIG_FILE = "sensor.conf";
 
     public static void main(String[] args) throws Exception {
@@ -79,6 +80,10 @@ public class Main {
 
                 if (!dataItem.containsKey("sensorid")) {
                     dataItem.put("sensorid", sensorid);
+                }
+
+                if (!dataItem.containsKey("sensortype")) {
+                    dataItem.put("sensortype", sensorType);
                 }
 
                 boolean pushResult = outputAdaptor.pushData(dataItem);
@@ -112,6 +117,7 @@ public class Main {
             String inputClassName = prop.getProperty("data").trim();
             String outputClassName = prop.getProperty("platform").trim();
             sensorid = prop.getProperty("sensorID").trim();
+            sensorType = prop.getProperty("sensorType").trim();
 
             boolean initInput = true;
             boolean initOutput = true;
