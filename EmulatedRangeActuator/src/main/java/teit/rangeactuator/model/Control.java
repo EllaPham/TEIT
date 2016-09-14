@@ -10,9 +10,19 @@ package teit.rangeactuator.model;
  * @author Trang
  */
 public class Control {
+
     public String name;
     public int stateValue;
     public boolean isSet;
+
+    public Control() {
+    }
+
+    public Control(String name, int stateValue, boolean isSet) {
+        this.name = name;
+        this.stateValue = stateValue;
+        this.isSet = isSet;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -37,5 +47,5 @@ public class Control {
     public boolean isIsSet() {
         return isSet;
     }
-    
+
 }

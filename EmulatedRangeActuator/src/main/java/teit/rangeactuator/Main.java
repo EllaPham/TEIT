@@ -8,7 +8,7 @@ package teit.rangeactuator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import teit.rangeactuator.model.Range;
+import teit.rangeactuator.model.RangeActuator;
 
 /**
  *
@@ -20,10 +20,10 @@ public class Main {
 
         if (args.length > 0) {
 
-            Range range;
+            RangeActuator range;
             ObjectMapper mapper = new ObjectMapper();
             try {
-                range = mapper.readValue(new File("RangeActuator.data"), Range.class);
+                range = mapper.readValue(new File("RangeActuator.data"), RangeActuator.class);
 
                 switch (args[0]) {
                     case "current-state":

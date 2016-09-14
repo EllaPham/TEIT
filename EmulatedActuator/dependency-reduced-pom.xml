@@ -23,7 +23,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>teit.actuator.Main</mainClass>
+                  <mainClass>teit.enumactuator.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>

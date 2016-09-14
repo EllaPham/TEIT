@@ -5,33 +5,20 @@
  */
 package teit.emulatedthings.model;
 
-import java.util.Map;
-import teit.actuator.model.EnumState;
-import teit.rangeactuator.model.Range;
+import teit.enumactuator.example.SwitchActuatorGenerator;
+import teit.emulatedthings.EmulatedThing;
 
 /**
  *
  * @author Trang
  */
 public class SmartLight {
-    public Map<String,EnumState> enumMap;
-    public Map<String,Range> rangeMap;       
-
-    public void setEnumMap(Map<String, EnumState> enumMap) {
-        this.enumMap = enumMap;
+   
+    public static EmulatedThing generate(String name){
+        EmulatedThing light = new EmulatedThing(name, EmulatedThing.THING_PUSH_PROTOCOL.LWM2M);
+        light.getEnumActuators().put(0, SwitchActuatorGenerator.generate("onoff-switch"));
+        light.getEnumActuators().put(1, SwitchActuatorGenerator.generate("color-switch"));
+        return light;
     }
-
-    public void setRangeMap(Map<String, Range> rangeMap) {
-        this.rangeMap = rangeMap;
-    }
-
-    public Map<String, EnumState> getEnumMap() {
-        return enumMap;
-    }
-
-    public Map<String, Range> getRangeMap() {
-        return rangeMap;
-    }
-    
     
 }

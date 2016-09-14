@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import teit.rangeactuator.model.Control;
-import teit.rangeactuator.model.Range;
+import teit.rangeactuator.model.RangeActuator;
 
 /**
  *
@@ -27,7 +27,7 @@ public class RangeActuatorGenerator {
 }
 
     private static String generateRangeDesciption() throws JsonProcessingException {
-        Range aRange = new Range();
+        RangeActuator aRange = new RangeActuator();
         Control aControl1 = new Control();
         Control aControl2 = new Control();
         Control aControl3 = new Control();
