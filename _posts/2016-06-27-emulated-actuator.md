@@ -85,24 +85,37 @@ The input of Enum Actuator is a JSON description to define the states and the co
 
 An example about  json file for switch actuator  "actuator.data" as below:
 
-
-
-    {
-      "description" : "Switch",
-      "states" : [ "ON", "OFF"],
-      "controls" : [ {
-        "name" : "turn-on",
-        "startState" : "OFF",
-        "endState" : "ON",
-        "parameter" : null
-      }, {
-        "name" : "turn-off",
-        "startState" : "ON",
-        "endState" : "OFF",
-        "parameter" : null
-      } ],
-      "currentState" : null    
+```json
+{
+  "name" : "my-switch1",
+  "type" : "Switch",
+  "context" : { "state" : "OFF" },
+  "controls" : {
+    "0" : {
+      "name" : "turn-on",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "OFF"
+      },
+      "effects" : {
+        "state" : "ON"
+      },
+      "command" : null
+    },
+    "1" : {
+      "name" : "turn-off",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "ON"
+      },
+      "effects" : {
+        "state" : "OFF"
+      },
+      "command" : null
     }
+  }
+}
+```
 
 ##### DOOR ACTUATOR 
 
@@ -115,32 +128,61 @@ An example about  json file for switch actuator  "actuator.data" as below:
 
 An example about  json file for door actuator  "actuator.data" as below:
 
-    {
-      "description" : "door_control",
-      "states" : [ "OPENED", "CLOSED", "LOCKED" ],
-      "controls" : [ {
-        "name" : "open-door",
-        "startState" : "CLOSED",
-        "endState" : "OPENED",
-        "parameter" : null
-      }, {
-        "name" : "close-door",
-        "startState" : "OPENED",
-        "endState" : "CLOSED",
-        "parameter" : null
-      }, {
-        "name" : "lock-door",
-        "startState" : "CLOSED",
-        "endState" : "LOCKED",
-        "parameter" : null
-      }, {
-        "name" : "unlock-door",
-        "startState" : "LOCKED",
-        "endState" : "CLOSED",
-        "parameter" : null
-      } ],
-      "currentState" : "LOCKED"          
+```json
+{
+  "name" : "my-smart-door",
+  "type" : "DOOR",
+  "context" : { },
+  "controls" : {
+    "0" : {
+      "name" : "open-door",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "CLOSED",
+        "locked" : "NO"
+      },
+      "effects" : {
+        "state" : "OPENED"
+      },
+      "command" : null
+    },
+    "1" : {
+      "name" : "close-door",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "OPENED"
+      },
+      "effects" : {
+        "state" : "CLOSED"
+      },
+      "command" : null
+    },
+    "2" : {
+      "name" : "lock-door",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "CLOSED",
+        "locked" : "NO"
+      },
+      "effects" : {
+        "locked" : "YES"
+      },
+      "command" : null
+    },
+    "3" : {
+      "name" : "unlock-door",
+      "parameters" : null,
+      "conditions" : {
+        "locked" : "YES"
+      },
+      "effects" : {
+        "locked" : "NO"
+      },
+      "command" : null
     }
+  }
+}
+```
 	
 #### 3.2. RANGE ACTUATOR
 
