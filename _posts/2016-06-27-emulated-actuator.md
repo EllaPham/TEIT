@@ -204,20 +204,16 @@ An example for description file of Air Conditioning:
 		
 		{
 		  "description" : "Range",
-		  "startRange" : 16,
-		  "endRange" : 50,
+		  "startRange" : 10,
+		  "endRange" : 35,
 		  "currentState" : 16,
-		  "controls" : [ {
-			"name" : "set-default",
-			"stateValue" : 20,
-			"isSet" : true
-		  }, {
+		  "controls" : [{
 			"name" : "set-high",
-			"stateValue" : 40,
+			"stateValue" : 28,
 			"isSet" : true
 		  }, {
 			"name" : "set-low",
-			"stateValue" : 17,
+			"stateValue" : 15,
 			"isSet" : true
 		  }, {
 			"name" : "increase-1",
