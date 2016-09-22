@@ -12,22 +12,37 @@ Create the description file for Actuator with name **“actuator.data”** in .j
 
 #### 1.1. Enum Actuator - Switch Actuator
 
-    {
-      "name" : "Switch",
-      "states" : [ "ON", "OFF"],
-      "controls" : [ {
-        "name" : "turn-on",
-        "startState" : "OFF",
-        "endState" : "ON",
-        "parameter" : null
-      }, {
-        "name" : "turn-off",
-        "startState" : "ON",
-        "endState" : "OFF",
-        "parameter" : null
-      } ],
-      "currentState" : null    
+```json
+{
+  "name" : "my-switch1",
+  "type" : "Switch",
+  "context" : { "state" : "OFF" },
+  "controls" : {
+    "0" : {
+      "name" : "turn-on",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "OFF"
+      },
+      "effects" : {
+        "state" : "ON"
+      },
+      "command" : null
+    },
+    "1" : {
+      "name" : "turn-off",
+      "parameters" : null,
+      "conditions" : {
+        "state" : "ON"
+      },
+      "effects" : {
+        "state" : "OFF"
+      },
+      "command" : null
     }
+  }
+}
+```
 
 
 #### 1.2. Range Actuator
